@@ -1,33 +1,41 @@
-import { useState } from "react";
-import reactLogo from "../assets/react.svg";
-import viteLogo from "/vite.svg";
+import {Card, CardBody} from "@nextui-org/react";
+import NavbarOffLogin from "../components/navbar";
+import logo from '../img/icono00.png'
 import "../App.css";
 
 export function Home() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header>
+        <NavbarOffLogin />
+      </header>
+      <body >
+        <div className="row">
+          <div className="column col-lg-4 col-md-12">
+            <h1 className="titulo">
+              Descubre un <br />
+              nuevo mundo🌎<br />
+              A  tu manera.
+            </h1>
+            <section>
+              <p className="titulo_des">
+                Start up de arriendo de distintos inmoviliarios en los que se encuentran: <br />
+                casas, cabaña, departamentos, hoteles, etc.
+                los cuales cuentan con calificacion hasta 5⭐️
+              </p>
+            </section>
+            <Card className="explorer">
+              <CardBody>
+                <p>Make beautiful websites regardless of your design experience.</p>
+              </CardBody>
+            </Card>
+            <div className="img col-lg-8 col-md-12">
+              <img style={{ width: '35rem' }} src={logo} alt="" />
+            </div>
+          </div>
+        </div>
+      </body>
     </>
   );
 }
