@@ -1,7 +1,7 @@
 import "./App.css";
 
 import { Route } from "wouter";
-import { Home } from "./routers/Home";
+import { Home } from "./routers/home";
 
 function App() {
   return (

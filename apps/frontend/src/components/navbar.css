@@ -1,0 +1,11 @@
+.nav{
+    height: 40rem;
+    line-height: 40rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.btn {
+    margin: 0.5rem;
+} 
