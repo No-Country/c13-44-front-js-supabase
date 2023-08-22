@@ -1,6 +1,4 @@
 .contenedor {
-  display: flex;
-  align-items: center; /* Alinear verticalmente los elementos */
 }
 
 .titulo{
@@ -9,32 +7,31 @@
     color: #000000;
     text-align: start;
     margin-top: 5rem;
-    margin-left: 8rem;   
+    margin-left: 6rem;   
 }
 
 .img{
   display: flex;
   justify-content: flex-end;
-  margin-right: 5rem;
-  margin-top: -30rem;
+  margin-right: 2rem;
+  margin-top: -39rem;
 }
 
 .titulo_des{
   font-size: 1rem;
   color: #000000;
   text-align: start;
-  margin-left: 5rem;   
+  margin-left: 6rem;   
 }
 
 .btn{
-  margin-left: 6.5rem;
-  margin-top: 1rem;
   width: 10rem;
-  height: 6rem;
 }
 
 .explorer {
-  margin-left: 5rem;
-  width: 10rem;
-
+  margin-top: 1rem;
+  margin-left: 6rem;
+  width: 40rem;
+  height: 5rem;
 }
+
