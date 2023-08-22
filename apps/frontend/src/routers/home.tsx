@@ -1,5 +1,4 @@
 import { Card, CardBody, Button } from "@nextui-org/react";
-import NavbarOffLogin from "../components/navbar";
 import { IconCalendarEvent, IconMapPin } from '@tabler/icons-react';
 import logo from '../img/icono00.png'
 import "../App.css";
@@ -8,10 +7,7 @@ export function Home() {
 
   return (
     <>
-      <header>
-        <NavbarOffLogin />
-      </header>
-      <body >
+      <section >
         <div className="row">
           <div className="column ">
             <h1 className="titulo animate-fade-right animate-once">
@@ -43,7 +39,7 @@ export function Home() {
             </div>
           </div>
         </div>
-      </body>
+      </section>
     </>
   );
 }
