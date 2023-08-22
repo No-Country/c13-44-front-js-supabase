@@ -5,8 +5,10 @@ import './navbar.css';
 export default function NavbarOffLogin() {
     return (
         <Navbar className="nav" shouldHideOnScroll>
-            <img style={{ width: '5rem' }} src={logo} alt="" />
-            <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            <div className="img_nav">
+                <img  src={logo} alt="" />
+            </div>
+            <NavbarContent className="options hidden sm:flex gap-4" justify="center">
                 <NavbarItem>
                     <Link color="foreground" href="#">
                         Destinos
@@ -25,10 +27,10 @@ export default function NavbarOffLogin() {
             </NavbarContent>
             <NavbarContent justify="end">
                 <NavbarItem className="hidden lg:flex">
-                    <Button className="btn" color="danger" variant="bordered" startContent=''>
+                    <Button className="btn1" color="danger" variant="bordered" startContent=''>
                         Iniciar Sesión
                     </Button>
-                    <Button className="btn" color="danger" variant="bordered" startContent=''>
+                    <Button className="btn1" color="danger" variant="bordered" startContent=''>
                         Registrarse
                     </Button>
                 </NavbarItem>
