@@ -1,5 +1,5 @@
 import { Card, CardBody, Button, Input } from "@nextui-org/react";
-import { IconCalendarEvent, IconMapPin, IconSearch } from '@tabler/icons-react';
+import { IconCalendarEvent, IconMapPin, IconSearch, IconCalendarOff } from '@tabler/icons-react';
 import logo from '../img/icono00.png'
 import "../App.css";
 
@@ -26,24 +26,31 @@ export function Home() {
               <CardBody className="flex-row">
                   <IconCalendarEvent className="w-10 h-10"/>
                   <Input  
-                  label="Seleccione una fecha"
+                  label="Fecha ingreso"
                   radius="lg"
                   variant="bordered"
                   className="w-40 ml-2"
                   placeholder="dd/mm/aa"
                   />
-                <IconMapPin className="w-10 h-10"/>
+                  <IconCalendarOff className="ml-1 w-10 h-10"/>
+                  <Input  
+                  label="Fecha salida"
+                  radius="lg"
+                  variant="bordered"
+                  className="w-40 "
+                  placeholder="dd/mm/aa"
+                  />
+                <IconMapPin className="ml-1 w-10 h-10 "/>
                 <Button className="btn" variant="bordered" >
                   <h1>Seleccione un destino</h1>
                 </Button>
                 <Input
-                  label="Search"
                   radius="lg"
                   variant="bordered"
-                  className="w-100 ml-2"
+                  className="w-50 ml-2"
                   placeholder="Que buscamos?"
             startContent={
-              <IconSearch className="text-black/50 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
+              <IconSearch className="w-10 h-10" />
             }
           />
               </CardBody>
