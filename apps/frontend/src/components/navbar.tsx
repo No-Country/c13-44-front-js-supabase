@@ -1,5 +1,6 @@
 import { Navbar, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
 import { IconChristmasTree, IconSend } from '@tabler/icons-react';
+import { ThemeSwitcher } from './theme_button'
 import logo from '../img/icono00.png'
 import './navbar.css';
 
@@ -24,6 +25,9 @@ export default function NavbarOffLogin() {
                     <Link color="foreground" href="#">
                         Contacto
                     </Link>
+                </NavbarItem>
+                <NavbarItem>
+                    <ThemeSwitcher />
                 </NavbarItem>
             </NavbarContent>
             <NavbarContent justify="end">
