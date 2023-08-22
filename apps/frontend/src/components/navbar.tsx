@@ -8,17 +8,17 @@ export default function NavbarOffLogin() {
             <img style={{ width: '5rem' }} src={logo} alt="" />
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 <NavbarItem>
-                    <Link color="foreground" href="#">
+                    <Link color="foreground" href="/destination">
                         Destinos
                     </Link>
                 </NavbarItem>
                 <NavbarItem isActive>
-                    <Link href="#" color="foreground">
+                    <Link href="/hotels" color="foreground">
                         Hoteles
                     </Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link color="foreground" href="#">
+                    <Link color="foreground" href="/contact">
                         Contacto
                     </Link>
                 </NavbarItem>
@@ -26,10 +26,14 @@ export default function NavbarOffLogin() {
             <NavbarContent justify="end">
                 <NavbarItem className="hidden lg:flex">
                     <Button className="btn" color="danger" variant="bordered" startContent=''>
-                        Iniciar Sesión
+                        <Link href="/login">
+                            Iniciar Sesión
+                        </Link>
                     </Button>
                     <Button className="btn" color="danger" variant="bordered" startContent=''>
-                        Registrarse
+                        <Link href="/register">
+                            Registrarse
+                        </Link>
                     </Button>
                 </NavbarItem>
             </NavbarContent>
