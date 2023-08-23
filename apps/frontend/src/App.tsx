@@ -1,4 +1,5 @@
 import "./App.css";
+import NavbarOffLogin from "./components/navbar";
 import Destination from "./routers/auth/pages/Destination";
 import Hotels from "./routers/auth/pages/Hotels";
 import Contact from "./routers/auth/pages/Contact";
