@@ -16,7 +16,7 @@ export default function NavbarOffLogin() {
                         Destinos
                     </Link>
                 </NavbarItem>
-                <NavbarItem isActive>
+                <NavbarItem >
                     <Link href="#" color="foreground">
                         Hoteles
                     </Link>
@@ -33,11 +33,11 @@ export default function NavbarOffLogin() {
             <NavbarContent justify="end">
                 <NavbarItem className="hidden lg:flex">
                     <IconChristmasTree className="mt-3.5 w-7 h-7"/>
-                    <Button className="btn1" color="danger" variant="bordered" startContent=''>
+                    <Button className="btn1" variant="bordered" startContent=''>
                         Iniciar Sesión
                     </Button>
                     <IconSend className="mt-4 w-6 h-6" />
-                    <Button className="btn1" color="danger" variant="bordered" startContent=''>
+                    <Button className="btn1" variant="bordered" color="default" startContent=''>
                         Registrarse
                     </Button>
                 </NavbarItem>
