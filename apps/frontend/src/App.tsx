@@ -1,4 +1,5 @@
 import "./App.css";
+import NavbarOffLogin from "./components/navbar";
 import Destination from "./routers/auth/pages/Destination";
 import Hotels from "./routers/auth/pages/Hotels";
 import Contact from "./routers/auth/pages/Contact";
@@ -10,6 +11,7 @@ import { Home } from "./routers/home";
 function App() {
   return (
     <>
+      <NavbarOffLogin />
       <Route path="/" component={Home} />
       <Route path="/destination" component={Destination} />
       <Route path="/hotels" component={Hotels} />

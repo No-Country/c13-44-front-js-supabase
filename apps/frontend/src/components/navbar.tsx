@@ -1,12 +1,15 @@
 import { Navbar, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
+import { IconChristmasTree, IconSend } from '@tabler/icons-react';
 import logo from '../img/icono00.png'
 import './navbar.css';
 
 export default function NavbarOffLogin() {
     return (
         <Navbar className="nav" shouldHideOnScroll>
-            <img style={{ width: '5rem' }} src={logo} alt="" />
-            <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            <div className="img_nav">
+                <img  src={logo} alt="" />
+            </div>
+            <NavbarContent className="options hidden sm:flex gap-4" justify="center">
                 <NavbarItem>
                     <Link color="foreground" href="/destination">
                         Destinos
@@ -25,15 +28,13 @@ export default function NavbarOffLogin() {
             </NavbarContent>
             <NavbarContent justify="end">
                 <NavbarItem className="hidden lg:flex">
-                    <Button className="btn" color="danger" variant="bordered" startContent=''>
-                        <Link href="/login">
-                            Iniciar Sesión
-                        </Link>
+                    <IconChristmasTree className="mt-3.5 w-7 h-7"/>
+                    <Button className="btn1" color="danger" variant="bordered" startContent=''>
+                        Iniciar Sesión
                     </Button>
-                    <Button className="btn" color="danger" variant="bordered" startContent=''>
-                        <Link href="/register">
-                            Registrarse
-                        </Link>
+                    <IconSend className="mt-4 w-6 h-6" />
+                    <Button className="btn1" color="danger" variant="bordered" startContent=''>
+                        Registrarse
                     </Button>
                 </NavbarItem>
             </NavbarContent>
