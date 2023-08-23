@@ -12,17 +12,17 @@ export default function NavbarOffLogin() {
             </div>
             <NavbarContent className="options hidden sm:flex gap-4" justify="center">
                 <NavbarItem>
-                    <Link color="foreground" href="#">
+                    <Link color="foreground" href="/destination">
                         Destinos
                     </Link>
                 </NavbarItem>
                 <NavbarItem >
-                    <Link href="#" color="foreground">
+                    <Link href="/hotels" color="foreground">
                         Hoteles
                     </Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link color="foreground" href="#">
+                    <Link color="foreground" href="/contact">
                         Contacto
                     </Link>
                 </NavbarItem>
