@@ -15,7 +15,7 @@ export default function NavbarOffLogin() {
 
   return (
     <Navbar className="nav" shouldHideOnScroll>
-      <div className="img_nav">
+      <div className="img_nav" onClick={() => setLocation("/")}>
         <img src={logo} alt="" />
       </div>
       <NavbarContent className="options hidden sm:flex gap-4" justify="center">
