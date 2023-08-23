@@ -78,7 +78,7 @@ const Login = () => {
         <section>
           <div className="flex flex-col items-center space-y-5 pt-6">
             <Button type="submit" className="bg-[#D41790] font-bold text-white md:text-lg  ">
-              Registrarse
+              Iniciar Sesión
             </Button>
             <Link href="/login" underline="always" color="danger">Iniciar Sesion</Link>
           </div>
