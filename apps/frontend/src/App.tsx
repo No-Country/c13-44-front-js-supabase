@@ -5,7 +5,6 @@ import Hotels from "./routers/auth/pages/Hotels";
 import Contact from "./routers/auth/pages/Contact";
 import Login from "./routers/auth/login/Login";
 import Register from "./routers/auth/register/Register";
-import NavbarOffLogin from "./components/navbar";
 import { Route } from "wouter";
 import { Home } from "./routers/home";
 
