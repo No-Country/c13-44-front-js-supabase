@@ -8,7 +8,11 @@ module.exports = {
 		"./src/**/*.{js,ts,jsx,tsx}",
 	],
 	theme: {
-		extend: {},
+		extend: {
+      colors:{
+        primary: '#D41790',
+      }
+    },
 	},
 	darkMode: "class",
 	plugins: [
