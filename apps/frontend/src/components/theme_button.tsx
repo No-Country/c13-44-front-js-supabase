@@ -18,6 +18,7 @@ export function ThemeSwitcher() {
     return (
         <div >
             <Switch
+                className="ml-20"
                 onClick={() => document.documentElement.classList.toggle('dark')}                
                 size="lg"
                 color="secondary"
@@ -29,7 +30,6 @@ export function ThemeSwitcher() {
                     )
                 }
             >
-                {theme}
             </Switch>
         </div>
     )

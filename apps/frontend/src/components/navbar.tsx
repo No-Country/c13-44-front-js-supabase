@@ -11,7 +11,7 @@ import "./navbar.css";
 import { useLocation } from "wouter";
 
 export default function NavbarOffLogin() {
-  const [_location, setLocation] = useLocation(); //_ para especificar que no se utiliza
+  const [, setLocation] = useLocation(); //_ para especificar que no se utiliza
 
   return (
     <Navbar className="nav" shouldHideOnScroll>
@@ -47,6 +47,7 @@ export default function NavbarOffLogin() {
           >
             Iniciar Sesión
           </Button>
+          <IconSend className="mt-4 w-6 h-6" />
           <Button
             onClick={() => setLocation("/register")}
             className="btn1"
