@@ -9,6 +9,7 @@ import { IconChristmasTree, IconSend } from "@tabler/icons-react";
 import logo from "../img/icono00.png";
 import "./navbar.css";
 import { useLocation } from "wouter";
+import { ThemeSwitcher } from "./theme_button";
 
 export default function NavbarOffLogin() {
   const [, setLocation] = useLocation(); //_ para especificar que no se utiliza
@@ -34,6 +35,9 @@ export default function NavbarOffLogin() {
             Contacto
           </Link>
         </NavbarItem>
+      </NavbarContent>
+      <NavbarContent>
+        <ThemeSwitcher/>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
