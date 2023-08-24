@@ -9,7 +9,7 @@ import {
   Chip,
   Image,
 } from "@nextui-org/react";
-eeimport { IconArrowBigLeft, IconArrowBigRight } from "@tabler/icons-react";
+import { IconArrowBigLeft, IconArrowBigRight } from "@tabler/icons-react";
 
 import { IconCurrentLocation } from "@tabler/icons-react";
 
