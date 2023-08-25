@@ -4,7 +4,7 @@ import Hotels from "./routers/auth/pages/Hotels";
 import Contact from "./routers/auth/pages/Contact";
 import Login from "./routers/auth/login/Login";
 import Register from "./routers/auth/register/Register";
-import { Error404 } from "./routers/404";
+import { Error404 } from "./routers/auth/pages/404";
 import { Route } from "wouter";
 import { Home } from "./routers/home";
 
