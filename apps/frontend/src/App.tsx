@@ -19,7 +19,7 @@ function App() {
         <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/:rest*" component={Error404} />
+        <Route path="/404" component={Error404} />
       </span>
     </>
   );
