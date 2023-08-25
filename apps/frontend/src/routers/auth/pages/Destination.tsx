@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import CardPropiedades from "../../../components/card";
+import CardDestinos from '../../../components/card.destinos';
 import { Filters } from '../../../components/filters';
 export interface PropsDestination {
 
@@ -19,7 +19,7 @@ const Destination: FC<PropsDestination> = () => {
                     {Array.from({ length: rows }).map((_, rowIndex) => (
                         <div key={rowIndex} className="flex flex-col gap-4">
                             {Array.from({ length: cols }).map((_, colIndex) => (
-                                <CardPropiedades key={colIndex} />
+                                <CardDestinos key={colIndex} />
                             ))}
                         </div>
                     ))}
