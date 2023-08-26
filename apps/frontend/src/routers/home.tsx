@@ -34,7 +34,7 @@ export function Home() {
           </div>
           <div className="flex flex-col">
             <img
-              className="max-w-[30rem]  animate-fade-left animate-once"
+              className="max-w-[30rem] mt-[-2rem] animate-fade-left animate-once"
               src={logo}
               alt=""
             />

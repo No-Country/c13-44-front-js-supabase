@@ -1,4 +1,5 @@
 import NavbarOffLogin from "./components/navbar";
+import Footer from "./components/footer";
 import Destination from "./routers/auth/pages/Destination";
 import Hotels from "./routers/auth/pages/Hotels";
 import Contact from "./routers/auth/pages/Contact";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+    <Footer />
       </span>
     </>
   );
