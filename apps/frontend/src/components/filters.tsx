@@ -8,7 +8,7 @@ export function Filters() {
     <>
       <Card
         shadow="md"
-        className="max-w-2xl w-full  shadow bg-primary animate-fade-right animate-once"
+        className="max-w-2xl w-full  shadow bg-primary animate-fade-down animate-once"
         radius="lg"
       >
         <CardBody className="flex-row flex p-3 gap-3">
