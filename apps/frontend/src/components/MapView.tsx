@@ -23,8 +23,9 @@ const MapView = () => {
     }
     return (
         <div ref={mapDiv} style={{
-            height: '25rem',
-            width: '35rem',
+            height: '20rem',
+            width: '30rem',
+
         }}>{userLocation?.join(',')}</div> //userLocation puede venir nulo, sino hace el join
     )
 }
