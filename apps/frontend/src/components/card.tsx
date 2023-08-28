@@ -4,6 +4,7 @@ import {
     CardHeader,
     Chip,
     Image,
+    Button
    } from "@nextui-org/react";
 import { IconCurrentLocation } from "@tabler/icons-react";
 
@@ -33,6 +34,10 @@ export default function CardPropiedades(){
         <p className="text-black text-tiny gap-2 flex items-center">
           <IconCurrentLocation /> 2.5 km
         </p>
+        <div className="container">
+        <Button className="bg-primary text-white" href="">Reservar</Button>
+        </div>
+
       </div>
       <div className=" flex flex-col items-center">
         <span className="line-through">$ 1500</span>
