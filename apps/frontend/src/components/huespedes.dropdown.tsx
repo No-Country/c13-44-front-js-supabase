@@ -85,7 +85,7 @@ export default function Huespedes() {
             className="pointer-events-auto cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
-              handleCounterDecrement(3);
+              handleCounterDecrement(2);
             }}
             style={{ margin: "0 4px" }}
           >
@@ -109,7 +109,7 @@ export default function Huespedes() {
             className="pointer-events-auto cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
-              handleCounterDecrement(2);
+              handleCounterDecrement(3);
             }}
             style={{ margin: "0 4px" }}
           >
