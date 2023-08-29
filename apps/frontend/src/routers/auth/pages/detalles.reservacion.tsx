@@ -5,14 +5,14 @@ export default function Reservar() {
     return (
         <>
             <div className="flex flex-row">
-                <div className="m-[2rem]">
+                <div className="m-1 mt-[4rem]">
                     <Image removeWrapper
                         alt="Card example background"
                         className="z-0 w-[40rem]  "
                         src="https://a0.muscache.com/im/pictures/95ecec03-f383-4f01-88e9-29519f65e630.jpg?im_w=1200"
                     />
                 </div>
-                <div className="flex flex-col mt-[2rem]">
+                <div className="flex flex-col mt-[2rem] ml-[2rem]">
                     <div className="flex flex-row justify-end">
                         <Chip className="bg-primary text-white m-[0.25rem]">
                             <IconStar className="w-4" />
@@ -28,27 +28,32 @@ export default function Reservar() {
                     <Divider className="w-[50rem] h-[0.1rem]" />
                     <div className="flex flex-row justify-center">
                         <Input className="w-[20rem] m-[1rem]" type="date" label="date" placeholder="Ingreso" />
-                        <Input className="w-[20rem] m-[1rem]" type="date" label="date" placeholder="Salida"/>
+                        <Input className="w-[20rem] m-[1rem]" type="date" label="date" placeholder="Salida" />
                     </div>
                     <div className="flex flex-row ml-[4rem] mt-[1rem]">
                         <Huespedes />
-                    <div className="ml-[2rem]">
-                        <ul>
-                            <li className="flex flex-row text-end ">
-                                Precio por Noche: 
-                                <span className="flex text-end text-primary ">$$$</span>
-                            </li>
-                            <li className="flex flex-row text-end ">
-                                Limpieza: 
-                                <span className="flex text-end text-primary ">$$$</span>
-                            </li>
-                            <li className="flex flex-row text-end ">
-                                Tarifa por servivio: 
-                                <span className="flex text-end text-primary ">$$$</span>
-                            </li>
-                        </ul>
+                        <div className="ml-[2rem]">
+                            <ul>
+                                <li className="flex flex-row text-end ">
+                                    Precio por Noche:
+                                    <span className="flex text-end text-primary ">$$$</span>
+                                </li>
+                                <li className="flex flex-row text-end ">
+                                    Limpieza:
+                                    <span className="flex text-end text-primary ">$$$</span>
+                                </li>
+                                <li className="flex flex-row text-end ">
+                                    Tarifa por servivio:
+                                    <span className="flex text-end text-primary ">$$$</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+                    <div className="flex flex-row">
+                        <Button className="mt-[1rem] ml-[4rem] h-[3.5rem] w-[20rem] text-xl" color="primary" variant="bordered">Reservar</Button>
+                        <h1 >Total:</h1>
                     </div>
+
                 </div>
             </div>
         </>
