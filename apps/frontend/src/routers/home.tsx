@@ -87,7 +87,6 @@ export function Home() {
             </Button>
             {[1, 2, 3, 4].map((value) => (
               <CardPropiedades key={value} onClick={() => {setLocation("/reservacion")
-              console.log("push");
               }}/>
             ))}
             <Button

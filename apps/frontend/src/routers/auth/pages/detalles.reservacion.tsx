@@ -51,7 +51,7 @@ export default function Reservar() {
                     </div>
                     <div className="flex flex-row">
                         <Button className="mt-[1rem] ml-[4rem] h-[3.5rem] w-[20rem] text-xl" color="primary" variant="bordered">Reservar</Button>
-                        <h1 >Total:</h1>
+                        <h1 className="font-bold text-6xl">Total:</h1>
                     </div>
 
                 </div>

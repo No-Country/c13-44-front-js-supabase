@@ -30,6 +30,7 @@ export default function CardPropiedades({ onClick }: CardPropiedades) {
           alt="Card example background"
           className="z-0 w-full h-full scale-125 -translate-y-6 object-cover"
           src="https://a0.muscache.com/im/pictures/95ecec03-f383-4f01-88e9-29519f65e630.jpg?im_w=1200"
+          onClick={onClick}
         />
         <CardFooter onClick={onClick} className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
           <div>
