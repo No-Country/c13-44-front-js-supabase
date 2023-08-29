@@ -26,7 +26,11 @@ export default function Huespedes() {
           <span>Huespedes: {total}</span>
         </Button>
       </DropdownTrigger>
-      <DropdownMenu aria-label="Action event example" className="dropdown-menu pointer-events-none">
+      <DropdownMenu 
+        aria-label="Action event example" 
+        closeOnSelect={false}
+        
+        className="dropdown-menu pointer-events-none">
         <DropdownItem className="flex flex-row">
           <span>Adultos</span>
           <Button
