@@ -30,14 +30,24 @@ export default function Reservar() {
                         <Input className="w-[20rem] m-[1rem]" type="date" label="date" placeholder="Ingreso" />
                         <Input className="w-[20rem] m-[1rem]" type="date" label="date" placeholder="Salida"/>
                     </div>
-                    <div className="flex ml-[4rem]">
+                    <div className="flex flex-row ml-[4rem] mt-[1rem]">
                         <Huespedes />
-                    </div>
-                    <div>
+                    <div className="ml-[2rem]">
                         <ul>
-                            <li>Precio por Noche: $$$</li>
-                            <li></li>
+                            <li className="flex flex-row text-end ">
+                                Precio por Noche: 
+                                <span className="flex text-end text-primary ">$$$</span>
+                            </li>
+                            <li className="flex flex-row text-end ">
+                                Limpieza: 
+                                <span className="flex text-end text-primary ">$$$</span>
+                            </li>
+                            <li className="flex flex-row text-end ">
+                                Tarifa por servivio: 
+                                <span className="flex text-end text-primary ">$$$</span>
+                            </li>
                         </ul>
+                    </div>
                     </div>
                 </div>
             </div>

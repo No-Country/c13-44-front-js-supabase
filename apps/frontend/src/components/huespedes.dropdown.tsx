@@ -1,6 +1,5 @@
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import { useState } from "react";
-
 export default function Huespedes() {
   const [counters, setCounters] = useState([0, 0, 0, 0]); // Adultos, Niños, Mascotas, Bebés
 
@@ -27,10 +26,11 @@ export default function Huespedes() {
           <span>Huespedes: {total}</span>
         </Button>
       </DropdownTrigger>
-      <DropdownMenu aria-label="Action event example">
+      <DropdownMenu aria-label="Action event example" className="dropdown-menu pointer-events-none">
         <DropdownItem className="flex flex-row">
           <span>Adultos</span>
           <Button
+            className="pointer-events-auto cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
               handleCounterDecrement(0);
@@ -41,6 +41,7 @@ export default function Huespedes() {
           </Button>
           <span>{counters[0]}</span>
           <Button
+            className="pointer-events-auto cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
               handleCounterIncrement(0);
@@ -53,6 +54,7 @@ export default function Huespedes() {
         <DropdownItem className="flex flex-row">
           <span>Niños</span>
           <Button
+            className="pointer-events-auto cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
               handleCounterDecrement(1);
@@ -63,6 +65,7 @@ export default function Huespedes() {
           </Button>
           <span>{counters[1]}</span>
           <Button
+            className="pointer-events-auto cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
               handleCounterIncrement(1);
@@ -75,6 +78,7 @@ export default function Huespedes() {
         <DropdownItem className="flex flex-row">
           <span>Bebés</span>
           <Button
+            className="pointer-events-auto cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
               handleCounterDecrement(3);
@@ -85,6 +89,7 @@ export default function Huespedes() {
           </Button>
           <span>{counters[2]}</span>
           <Button
+            className="pointer-events-auto cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
               handleCounterIncrement(2);
@@ -97,6 +102,7 @@ export default function Huespedes() {
         <DropdownItem className="flex flex-row">
           <span>Mascotas</span>
           <Button
+            className="pointer-events-auto cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
               handleCounterDecrement(2);
@@ -107,6 +113,7 @@ export default function Huespedes() {
           </Button>
           <span>{counters[3]}</span>
           <Button
+            className="pointer-events-auto cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
               handleCounterIncrement(3);
