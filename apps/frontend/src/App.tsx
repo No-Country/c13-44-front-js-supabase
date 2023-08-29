@@ -11,7 +11,7 @@ import { Home } from "./routers/home";
 function App() {
   return (
     <>
-      <span className="container min-h-screen flex flex-col mx-auto">
+      <span className="min-h-screen flex flex-col mx-auto">
         <NavbarOffLogin />
         <Route path="/" component={Home} />
         <Route path="/destination" component={Destination} />
@@ -19,7 +19,7 @@ function App() {
         <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-    <Footer />
+        <Footer />
       </span>
     </>
   );
