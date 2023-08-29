@@ -1,18 +1,16 @@
 import logo from "../img/icono00.png";
+import { useLocation } from "wouter";
 import { Filters } from "../components/filters";
 import {
   Avatar,
   Button,
-  Card,
-  CardFooter,
-  CardHeader,
-  Chip,
-  Image,
 } from "@nextui-org/react";
 import { IconArrowBigLeft, IconArrowBigRight, IconCurrentLocation } from "@tabler/icons-react";
 import CardPropiedades from "../components/card";
 
 export function Home() {
+  const [, setLocation] = useLocation(); 
+
   return (
     <span className="grid gap-24 ">
       <section className="mt-10 flex flex-col items-center ">
@@ -51,8 +49,10 @@ export function Home() {
             empieza a planificar tu viaje
           </p>
           <div className="flex gap-5 ">
-            {[1, 2, 3, 4].map(() => (
-              <CardPropiedades/>
+            {[1, 2, 3, 4].map((value) => (
+              <CardPropiedades key={value} onClick={() => {setLocation("/reservacion")
+             console.log("push");
+             }}/>
             ))}
           </div>
 
@@ -85,39 +85,9 @@ export function Home() {
             <Button variant="ghost" isIconOnly color="danger" aria-label="Like">
               <IconArrowBigLeft />
             </Button>
-            {[1, 2, 3].map(() => (
-              <Card
-                isFooterBlurred
-                className="w-64 h-[300px] col-span-12 sm:col-span-5"
-              >
-                <CardHeader className="absolute z-10 top-1 flex-col items-start">
-                  <Chip color="primary" variant="shadow">
-                    New
-                  </Chip>
-                </CardHeader>
-                <Image
-                  removeWrapper
-                  alt="Card example background"
-                  className="z-0 w-full h-full scale-125 -translate-y-6 object-cover"
-                  src="https://a0.muscache.com/im/pictures/95ecec03-f383-4f01-88e9-29519f65e630.jpg?im_w=1200"
-                />
-                <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
-                  <div>
-                    <p className="text-black font-semibold overflow-clip">
-                      Apartamento 3
-                    </p>
-                    <p className="text-black text-tiny gap-2 flex items-center">
-                      <IconCurrentLocation /> 2.5 km
-                    </p>
-                  </div>
-                  <div className=" flex flex-col items-center">
-                    <span className="line-through">$ 1500</span>
-                    <Chip color="primary" variant="shadow">
-                      $ 999
-                    </Chip>
-                  </div>
-                </CardFooter>
-              </Card>
+            {[1, 2, 3, 4].map((value) => (
+              <CardPropiedades key={value} onClick={() => {setLocation("/reservacion")
+              }}/>
             ))}
             <Button
               variant="shadow"

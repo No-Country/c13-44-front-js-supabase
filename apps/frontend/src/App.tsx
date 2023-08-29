@@ -5,10 +5,9 @@ import Hotels from "./routers/auth/pages/Hotels";
 import Contact from "./routers/auth/pages/Contact";
 import Login from "./routers/auth/login/Login";
 import Register from "./routers/auth/register/Register";
-
 import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 import { Error404 } from "./routers/auth/pages/404";
-
+import Reservar from "./routers/auth/pages/detalles.reservacion";
 import { Route } from "wouter";
 import { Home } from "./routers/home";
 
@@ -25,9 +24,9 @@ function App() {
         <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Footer />
         <Route path="/404" component={Error404} />
-
+        <Route path="/reservacion" component={Reservar} />
+        <Footer />
       </span>
     </>
   );
