@@ -4,6 +4,7 @@ import Hotels from "./routers/auth/pages/Hotels";
 import Contact from "./routers/auth/pages/Contact";
 import Login from "./routers/auth/login/Login";
 import Register from "./routers/auth/register/Register";
+import { Post } from "./routers/auth/pages/post";
 import { Error404 } from "./routers/auth/pages/404";
 import Reservar from "./routers/auth/pages/detalles.reservacion";
 import { Route } from "wouter";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/404" component={Error404} />
         <Route path="/reservacion" component={Reservar} />
+        <Route path="/postvivienda" component={Post} />     
       </span>
     </>
   );
