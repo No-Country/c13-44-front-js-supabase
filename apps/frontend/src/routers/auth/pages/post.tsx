@@ -144,7 +144,7 @@ export function Post() {
                         />
                         <div className="flex justify-end mt-[1rem]">
                             <Button color="primary" variant="bordered" className="w-[12rem] h-[3rem]">
-                                Post
+                                Crear aviso
                             </Button>
                         </div>
                     </div>
