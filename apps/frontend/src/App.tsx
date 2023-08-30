@@ -20,7 +20,7 @@ mapboxgl.accessToken =
 function App() {
   return (
     <>
-      <span className=" min-h-screen flex flex-col mx-auto">
+      <span className="container min-h-screen flex flex-col mx-auto">
         <NavbarOffLogin />
         <Route path="/" component={Home} />
         <Route path="/destination" component={Destination} />
