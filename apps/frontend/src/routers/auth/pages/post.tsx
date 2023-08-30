@@ -43,7 +43,9 @@ export function Post() {
                     ) : (
                         <Card className="w-[30rem] h-[30rem] ">
                             <CardBody className="flex justify-center items-center">
-                                <IconPhotoPlus className="w-10" />
+                                <div >
+                                    <IconPhotoPlus className="w-20 h-20" />
+                                </div>
                                 <p className="font-bold text-lg">
                                     <span className="text-primary mr-1">
                                         Selecciona
@@ -52,8 +54,8 @@ export function Post() {
                                 </p>
                             </CardBody>
                             <CardFooter>
-                                <div className="w-[30rem]">
-                                    <Input type="file" className="flex justify-center items-center " onChange={handleImageChange} />
+                                <div className="w-full text-center " >
+                                    <Input type="file" className="flex justify-center items-center content-center" onChange={handleImageChange} />
                                 </div>
                             </CardFooter>
                         </Card>
@@ -65,7 +67,7 @@ export function Post() {
                             type="text"
                             label="Titulo"
                             labelPlacement="outside"
-                            placeholder="ej: departamento vista al mar"
+                            placeholder="Ej: departamento vista al mar"
                             className="w-[15rem]"
                         />
                         <Input
@@ -86,8 +88,8 @@ export function Post() {
                         />
                         <Input
                             type="text"
-                            label="Ubicacion"
-                            placeholder="Donde es?"
+                            label="Ciudad"
+                            placeholder="Ej: bogota"
                             labelPlacement="outside"
                             className="w-[15rem]"
 
@@ -98,7 +100,7 @@ export function Post() {
                             className="mt-0"
                             label="Prestaciones"
                             labelPlacement="outside"
-                            placeholder="ej: televicion"
+                            placeholder="Ej: televicion"
                         >
                             <SelectItem
                                 key="db"
@@ -124,7 +126,7 @@ export function Post() {
                             className="mt-1 max-w-[15rem]" 
                             label="Tipo de vivienda"
                             labelPlacement="outside"
-                            placeholder="ej: casa">
+                            placeholder="Ej: casa">
                             {tiposDeVivienda.map((tipo) => (
                                 <SelectItem key={tipo} value={tipo}>
                                     {tipo.charAt(0).toUpperCase() + tipo.slice(1)}
@@ -135,7 +137,7 @@ export function Post() {
                             className="mt-1 max-w-[15rem]" 
                             label="Limite de huéspedes"
                             labelPlacement="outside"
-                            placeholder="ej: 4">         
+                            placeholder="Ej: 4">         
                             {huespedes.map((tipo) => (
                                 <SelectItem key={tipo} value={tipo}>
                                     {tipo.charAt(0).toUpperCase() + tipo.slice(1)}
