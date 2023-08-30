@@ -79,6 +79,10 @@ export function Post() {
                                     <span className="text-default-400 text-small">$</span>
                                 </div>
                             }
+                            endContent={
+                                <p>USD</p>
+                            }
+
                         />
                         <Input
                             type="text"
@@ -91,8 +95,10 @@ export function Post() {
                     </div>
                     <div className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
                         <Select
-                            className="mt-2"
+                            className="mt-0"
                             label="Prestaciones"
+                            labelPlacement="outside"
+                            placeholder="ej: televicion"
                         >
                             <SelectItem
                                 key="db"
@@ -103,25 +109,33 @@ export function Post() {
                         <Input
                             type="date"
                             label="Ingreso"
-                            placeholder="0.00"
+                            placeholder="."
                             labelPlacement="outside"
                         />
                         <Input
                             type="date"
                             label="Salida"
-                            placeholder="0.00"
+                            placeholder="."
                             labelPlacement="outside"
                         />
                     </div>
                     <div className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
-                        <Select className="mt-2 max-w-[15rem]" label="Tipo de vivienda">
+                        <Select 
+                            className="mt-1 max-w-[15rem]" 
+                            label="Tipo de vivienda"
+                            labelPlacement="outside"
+                            placeholder="ej: casa">
                             {tiposDeVivienda.map((tipo) => (
                                 <SelectItem key={tipo} value={tipo}>
                                     {tipo.charAt(0).toUpperCase() + tipo.slice(1)}
                                 </SelectItem>
                             ))}
                         </Select>
-                        <Select className="mt-2 max-w-[15rem]" label="Limite de huéspedes">
+                        <Select 
+                            className="mt-1 max-w-[15rem]" 
+                            label="Limite de huéspedes"
+                            labelPlacement="outside"
+                            placeholder="ej: 4">         
                             {huespedes.map((tipo) => (
                                 <SelectItem key={tipo} value={tipo}>
                                     {tipo.charAt(0).toUpperCase() + tipo.slice(1)}
