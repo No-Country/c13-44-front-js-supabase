@@ -11,38 +11,36 @@ import {
 } from "@nextui-org/react";
 import { IconChristmasTree, IconSend } from "@tabler/icons-react";
 import logo from "../img/icono00.png";
-import "./navbar.css";
 import { useLocation } from "wouter";
 import React from "react";
-
 
 export default function NavbarOffLogin() {
   const [, setLocation] = useLocation(); //_ para especificar que no se utiliza
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
-    {name: "Destinos", route: '/destination'},
-    {name: "Contacto", route: '/contact'},
-    {name: "Iniciar Sesión", route: '/login'},
-    {name: "Registro", route: '/register'},
+    { name: "Destinos", route: "/destination" },
+    { name: "Contacto", route: "/contact" },
+    { name: "Iniciar Sesión", route: "/login" },
+    { name: "Registro", route: "/register" },
   ];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className="nav" shouldHideOnScroll>
+    <Navbar onMenuOpenChange={setIsMenuOpen} className="  " shouldHideOnScroll>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="lg:hidden"
         />
         <NavbarBrand>
-          <div className="img_nav" onClick={() => setLocation('/')}>
+          <div className="max-w-[5rem]" onClick={() => setLocation("/")}>
             <img src={logo} alt="" />
           </div>
         </NavbarBrand>
       </NavbarContent>
-      <NavbarContent className="options hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="options hidden lg:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" onClick={() => setLocation('/destination')}>
+          <Link color="foreground" onClick={() => setLocation("/destination")}>
             Destinos
           </Link>
         </NavbarItem>
@@ -53,8 +51,8 @@ export default function NavbarOffLogin() {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <IconChristmasTree className="mt-3.5 w-7 h-7" />
+        <NavbarItem className="hidden lg:flex  items-center gap-2">
+          <IconChristmasTree className=" w-7 h-7" />
           <Button
             onClick={() => setLocation("/login")}
             className="btn1"
@@ -64,7 +62,7 @@ export default function NavbarOffLogin() {
           >
             Iniciar Sesión
           </Button>
-          <IconSend className="mt-4 w-6 h-6" />
+          <IconSend className=" w-6 h-6" />
           <Button
             onClick={() => setLocation("/register")}
             className="btn1"
@@ -80,12 +78,10 @@ export default function NavbarOffLogin() {
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
-              color={
-                  index > 1 ? 'primary' : 'foreground'
-              }
+              color={index > 1 ? "primary" : "foreground"}
               className="w-full"
               onClick={() => {
-                setLocation(item.route)
+                setLocation(item.route);
               }}
               size="lg"
             >
