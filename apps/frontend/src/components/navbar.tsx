@@ -21,7 +21,7 @@ export default function NavbarOffLogin() {
       </div>
       <NavbarContent className="options hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="/destination">
+          <Link color="foreground" onClick={() => setLocation('/destination')}>
             Destinos
           </Link>
         </NavbarItem>
