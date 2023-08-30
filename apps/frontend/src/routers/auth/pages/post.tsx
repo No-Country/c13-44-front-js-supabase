@@ -59,7 +59,7 @@ export function Post() {
                         </Card>
                     )}
                 </div>
-                <div className="flex flex-col gap-4 justify-start ml-[4rem] mt-[8rem]">
+                <div className="flex flex-col gap-4 justify-start ml-[2rem] mt-[8rem]">
                     <div className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
                         <Input
                             type="text"
