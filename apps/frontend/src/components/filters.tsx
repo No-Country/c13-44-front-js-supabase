@@ -1,49 +1,47 @@
-import { Card, CardBody, Input } from "@nextui-org/react";
-import { IconSearch } from "@tabler/icons-react";
-
+import React from "react";
+import { Card, CardBody } from "@nextui-org/react";
 import { Select, SelectItem } from "@nextui-org/react";
+
+interface MenuItem {
+  label: string;
+  items: string[];
+}
+
+const menus: MenuItem[] = [
+  { label: "Tipo de alojamiento", items: ["Apartamento", "Motel", "Casa Rural", "Camping", "Glamping", "Albergues"] },
+  { label: "Comodidades", items: ["Apartamento", "Motel", "Casa Rural", "Camping", "Glamping", "Albergues"] },
+  { label: "Clasificaciones", items: ["Apartamento", "Motel", "Casa Rural", "Camping", "Glamping", "Albergues"] },
+  { label: "Precio", items: ["Apartamento", "Motel", "Casa Rural", "Camping", "Glamping", "Albergues"] },
+];
 
 export function Filters() {
   return (
-    <>
-      <Card
-        shadow="md"
-        className="max-w-2xl w-full  shadow bg-primary animate-fade-down animate-once"
-        radius="lg"
-      >
-        <CardBody className="flex-row flex p-3 gap-3">
+    <Card
+      shadow="md"
+      className="max-w-5xl w-full shadow bg-primary animate-fade-down animate-once"
+      radius="lg"
+    >
+      <CardBody className="flex-row flex p-3 gap-3">
+        {menus.map((menu) => (
           <Select
+            key={menu.label}
             labelPlacement="outside"
-            label={"Destino"}
-            className="max-w-xs"
+            label={menu.label}
+            className="max-w-[10rem]"
             color="primary"
           >
-            {[
-              {
-                label: "All",
-                value: "all",
-              },
-            ].map((animal) => (
+            {menu.items.map((item) => (
               <SelectItem
                 color="primary"
                 variant="flat"
-                key={animal.value}
-                value={animal.value}
+                key={item}
               >
-                {animal.label}
+                {item}
               </SelectItem>
             ))}
           </Select>
-          <Input
-            radius="lg"
-            variant="flat"
-            color="primary"
-            className=" h-full"
-            placeholder="Que buscamos?"
-            startContent={<IconSearch className="" />}
-          />
-        </CardBody>
-      </Card>
-    </>
+        ))}
+      </CardBody>
+    </Card>
   );
 }
