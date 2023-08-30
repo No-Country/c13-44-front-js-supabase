@@ -28,7 +28,7 @@ export function Home() {
                 casas, cabaña, departamentos, hoteles, etc. los cuales cuentan
                 con calificacion hasta 5⭐️
               </p>
-              <Link className="animate-fade-right animate-once" onClick={() => {setLocation("/postvivienda")
+              <Link className="animate-fade-right animate-once cursor-pointer" onClick={() => {setLocation("/postvivienda")
               }}>Quieres subir tu propiedad??</Link>
             </section>
           </div>
