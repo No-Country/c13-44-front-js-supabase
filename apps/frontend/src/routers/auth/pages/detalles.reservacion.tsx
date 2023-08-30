@@ -11,7 +11,7 @@ import {
     IconSwimming, 
     IconSunset2, 
     IconSportBillard } from "@tabler/icons-react";
-import Huespedes from '../../../components/huespedes.dropdown'
+import Huespedes from '../../../components/huespedes'
 export default function Reservar() {
     return (
         <>
