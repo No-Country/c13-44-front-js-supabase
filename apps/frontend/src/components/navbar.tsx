@@ -29,16 +29,13 @@ export default function NavbarOffLogin() {
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen} className="  " shouldHideOnScroll>
       <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="lg:hidden"
-        />
         <NavbarBrand>
           <div className="max-w-[5rem]" onClick={() => setLocation("/")}>
             <img src={logo} alt="" />
           </div>
         </NavbarBrand>
       </NavbarContent>
+
       <NavbarContent className="options hidden lg:flex gap-4" justify="center">
         <NavbarItem>
           <Link color="foreground" onClick={() => setLocation("/destination")}>
@@ -46,15 +43,22 @@ export default function NavbarOffLogin() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" onClick={() => setLocation('/contact')}>
+          <Link color="foreground" onClick={() => setLocation("/contact")}>
             Contacto
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <ThemeSwitcher/>
+          <ThemeSwitcher />
         </NavbarItem>
       </NavbarContent>
-      <NavbarContent justify="end">
+
+      <NavbarContent justify="end" className="lg:hidden">
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        />
+      </NavbarContent>
+
+      <NavbarContent justify="end" className="hidden lg:flex">
         <NavbarItem className="hidden lg:flex  items-center gap-2">
           <IconChristmasTree className=" w-7 h-7" />
           <Button
@@ -78,6 +82,7 @@ export default function NavbarOffLogin() {
           </Button>
         </NavbarItem>
       </NavbarContent>
+
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
