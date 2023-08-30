@@ -1,4 +1,6 @@
 import { Modal, ModalContent, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
+
+import { IconPlus, IconMinus } from "@tabler/icons-react";
 import { useState } from "react";
 
 const HuespedesVarians = [
@@ -62,29 +64,25 @@ export default function Huespedes() {
                         <span >{Huesped.name}</span>
                       </div>
                       <div className="flex flex-row justify-center mt-4 items-end">
-                        <Button
+                        <IconMinus
                           className="pointer-events-auto cursor-pointer"
                           onClick={(e) => {
                             e.stopPropagation();
                             handleCounterDecrement(index);
                           }}
-                          style={{ margin: "0 4px" }}
-                        >
-                          -
-                        </Button>
+                          style={{ margin: "0 10px" }}
+                        />
                           <span >
                             {Huesped.count}
                           </span>
-                        <Button
+                        <IconPlus
                           className="pointer-events-auto cursor-pointer"
                           onClick={(e) => {
                             e.stopPropagation();
                             handleCounterIncrement(index);
                           }}
-                          style={{ margin: "0 4px" }}
-                        >
-                          +
-                        </Button>
+                          style={{ margin: "0 10px" }}
+                        />
                       </div>
                     </div>
                   );
