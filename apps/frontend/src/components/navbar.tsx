@@ -10,6 +10,7 @@ import {
   NavbarBrand,
 } from "@nextui-org/react";
 import { IconChristmasTree, IconSend } from "@tabler/icons-react";
+import { ThemeSwitcher } from "./theme_button";
 import logo from "../img/icono00.png";
 import "./navbar.css";
 import { useLocation } from "wouter";
@@ -47,9 +48,12 @@ export default function NavbarOffLogin() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/contact">
+          <Link color="foreground" onClick={() => setLocation('/contact')}>
             Contacto
           </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <ThemeSwitcher/>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
