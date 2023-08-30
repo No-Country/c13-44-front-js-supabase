@@ -142,7 +142,7 @@ export function Post() {
                                 </SelectItem>
                             ))}
                         </Select>
-                        <div className="flex flex-row items-center ">
+                        <div className="flex flex-row items-center mt-[1.5rem] ">
                             <h1 className="mr-1">No se admiten mascotas</h1>
                             <Switch />
                         </div>
