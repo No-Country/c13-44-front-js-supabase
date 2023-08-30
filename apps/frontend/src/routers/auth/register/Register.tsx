@@ -48,7 +48,7 @@ const Register = () => {
 
     const toggleVisibility = () => setIsVisible(!isVisible);
     return (
-        <div className="flex flex-row justify-center pt-[10rem]">
+        <div className="flex flex-row justify-center py-[10rem]">
             <section>
                 <div className="md:w-96 w-full">
                     <form className="space-y-5 " onSubmit={handleSubmit(onSubmit as any)} >
