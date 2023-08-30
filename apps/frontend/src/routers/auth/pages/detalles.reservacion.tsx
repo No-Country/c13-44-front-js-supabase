@@ -1,6 +1,17 @@
 import { Divider, Image, Chip, Button, Input, Tabs, Tab } from "@nextui-org/react";
-import { IconStar, IconHeart, IconShare, IconWifi, IconCooker, IconDeviceTv, IconParking } from "@tabler/icons-react";
-import Huespedes from '../../../components/huespedes.dropdown'
+import { 
+    IconStar,
+    IconHeart, 
+    IconShare, 
+    IconWifi, 
+    IconCooker, 
+    IconDeviceTv, 
+    IconParking, 
+    IconBath, 
+    IconSwimming, 
+    IconSunset2, 
+    IconSportBillard } from "@tabler/icons-react";
+import Huespedes from '../../../components/huespedes'
 export default function Reservar() {
     return (
         <>
@@ -27,9 +38,9 @@ export default function Reservar() {
                         </div>
                         <h1 className="font-bold text-lg text-primary">Cabaña, Colombia, Medellin</h1>
                         <Divider className="w-[50rem] h-[0.1rem]" />
-                        <div className="flex flex-row justify-center">
-                            <Input className="w-[20rem] m-[1rem]" type="date" label="date" placeholder="Ingreso" />
-                            <Input className="w-[20rem] m-[1rem]" type="date" label="date" placeholder="Salida" />
+                        <div className="flex flex-row justify-center ]">
+                            <Input className="max-w-[20rem] m-[1rem]" type="date" label="Ingeso" placeholder="Ingreso" />
+                            <Input className="max-w-[20rem] m-[1rem]" type="date" label="Salida" placeholder="Salida" />
                         </div>
                         <div className="flex flex-row ml-[4rem] mt-[1rem]">
                             <Huespedes />
@@ -61,34 +72,60 @@ export default function Reservar() {
                     </div>
                 </div>
                 <Tabs variant={"underlined"} aria-label="Tabs variants">
-                    <Tab  title="Descripcion">
+                    <Tab title="Descripcion">
                         <div className="m-[1rem]">
+                            <div className="flex flex-row">
+                                <h1 className="font-bold mb-[1rem]">Tipo: </h1>
+                                <p>Cabaña</p>
+                            </div>
                             <h1 className="font-bold mb-[1rem]">Descripcion</h1>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus ex totam voluptatibus ad, minus quo veritatis, a quas porro cum vel sit libero non in quasi! Nostrum provident repellendus sunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut commodi incidunt iusto maiores, ex expedita eligendi assumenda facere voluptate dolorum molestiae neque asperiores temporibus, veritatis quod voluptates. Molestias, fugit voluptatem.
                             </p>
                             <h1 className="font-bold mt-[2rem]">Las prestaciones disponibles</h1>
-                            <ul>
-                                <li>
-                                    <IconWifi className=""/>
-                                </li>
-                                <li>
+                            <div className="flex flex-row">
+                                <ul>
+                                    <li className="flex flex-row m-4">
+                                        <IconWifi className="w-10 h-10" />
+                                        <h1>Wifi</h1>
+                                    </li >
+                                    <li className="flex flex-row m-4">
+                                        <IconCooker className="w-10 h-10" />
+                                        <h1>Cocina</h1>
+                                    </li >
+                                    <li className="flex flex-row m-4">
+                                        <IconDeviceTv className="w-10 h-10" />
+                                        <h1>Televicion</h1>
+                                    </li >
+                                    <li className="flex flex-row m-4">
+                                        <IconParking className="w-10 h-10" />
+                                        <h1>Estacionamiento</h1>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li className="flex flex-row m-4">
+                                        <IconBath className="w-10 h-10" />
+                                        <h1>Ducha</h1>
+                                    </li >
+                                    <li className="flex flex-row m-4">
+                                        <IconSwimming className="w-10 h-10" />
+                                        <h1>Picina</h1>
+                                    </li >
+                                    <li className="flex flex-row m-4">
+                                        <IconSunset2 className="w-10 h-10" />
+                                        <h1>Hermosa vista</h1>
+                                    </li >
+                                    <li className="flex flex-row m-4">
+                                        <IconSportBillard className="w-10 h-10" />
+                                        <h1>Mesa de pool</h1>
+                                    </li>
+                                </ul>
 
-                                </li>
-                                <li>
-                                    <IconCooker/>
-                                </li>
-                                <li>
-                                    <IconDeviceTv/>
-                                </li>
-                                <li>
-                                    <IconParking/>
-                                </li>
-                            </ul>
-                       </div>
+                            </div>
+                        </div>
                     </Tab>
                     <Tab title="Reseñas">
-
+                        <h1 className="font-bold text-7xl">Proximamente Disponible ...</h1>
                     </Tab>
                 </Tabs>
             </div>

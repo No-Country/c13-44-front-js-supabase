@@ -7,7 +7,11 @@ import Login from "./routers/auth/login/Login";
 import Register from "./routers/auth/register/Register";
 import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 import { Error404 } from "./routers/auth/pages/404";
+
 import Reservar from "./routers/auth/pages/detalles.reservacion";
+import UsuarioPerfil from "./routers/auth/pages/perfil";
+import { Post } from "./routers/auth/pages/post";
+import { Error404 } from "./routers/auth/pages/404";
 import { Route } from "wouter";
 import { Home } from "./routers/home";
 
@@ -16,7 +20,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYmFzdGFyZG9zc3MiLCJhIjoiY2xscjFiZXI2MGJ1bDNjd
 function App() {
   return (
     <>
-      <span className="container min-h-screen flex flex-col mx-auto">
+      <span className="min-h-screen flex flex-col mx-auto">
         <NavbarOffLogin />
         <Route path="/" component={Home} />
         <Route path="/destination" component={Destination} />
@@ -26,6 +30,8 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/404" component={Error404} />
         <Route path="/reservacion" component={Reservar} />
+        <Route path="/postvivienda" component={Post} />   
+        <Route path="/perfil" component={UsuarioPerfil} />  
         <Footer />
       </span>
     </>

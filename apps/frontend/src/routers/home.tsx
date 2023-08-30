@@ -4,8 +4,9 @@ import { Filters } from "../components/filters";
 import {
   Avatar,
   Button,
+  Link
 } from "@nextui-org/react";
-import { IconArrowBigLeft, IconArrowBigRight, IconCurrentLocation } from "@tabler/icons-react";
+import { IconArrowBigLeft, IconArrowBigRight } from "@tabler/icons-react";
 import CardPropiedades from "../components/card";
 
 export function Home() {
@@ -27,6 +28,8 @@ export function Home() {
                 casas, cabaña, departamentos, hoteles, etc. los cuales cuentan
                 con calificacion hasta 5⭐️
               </p>
+              <Link className="animate-fade-right animate-once cursor-pointer" onClick={() => {setLocation("/postvivienda")
+              }}>Quieres subir tu propiedad??</Link>
             </section>
           </div>
           <div className="flex flex-col">
