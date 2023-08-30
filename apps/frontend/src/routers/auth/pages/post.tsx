@@ -34,8 +34,8 @@ export function Post() {
                                 <Image src={selectedImage} alt="Imagen seleccionada" className="w-full" />
                             </CardBody>
                             <CardFooter>
-                                <div className="w-[30rem]">
-                                    <Input type="file" className="flex items-center" onChange={handleImageChange} />
+                                <div className="flex items-center w-[30rem]">
+                                    <Input type="file"  onChange={handleImageChange} />
                                 </div>
                             </CardFooter>
 
@@ -53,7 +53,7 @@ export function Post() {
                             </CardBody>
                             <CardFooter>
                                 <div className="w-[30rem]">
-                                    <Input type="file" className="flex items-center" onChange={handleImageChange} />
+                                    <Input type="file" className="flex justify-center items-center " onChange={handleImageChange} />
                                 </div>
                             </CardFooter>
                         </Card>
