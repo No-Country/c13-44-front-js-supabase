@@ -4,30 +4,46 @@ import {
   NavbarItem,
   Link,
   Button,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
+  NavbarBrand,
 } from "@nextui-org/react";
 import { IconChristmasTree, IconSend } from "@tabler/icons-react";
 import logo from "../img/icono00.png";
 import "./navbar.css";
 import { useLocation } from "wouter";
-import { ThemeSwitcher } from "./theme_button";
+import React from "react";
+
 
 export default function NavbarOffLogin() {
   const [, setLocation] = useLocation(); //_ para especificar que no se utiliza
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const menuItems = [
+    {name: "Destinos", route: '/destination'},
+    {name: "Contacto", route: '/contact'},
+    {name: "Iniciar Sesión", route: '/login'},
+    {name: "Registro", route: '/register'},
+  ];
 
   return (
-    <Navbar className="nav" shouldHideOnScroll>
-      <div className="img_nav" onClick={() => setLocation('/')}>
-        <img src={logo} alt="" />
-      </div>
+    <Navbar onMenuOpenChange={setIsMenuOpen} className="nav" shouldHideOnScroll>
+      <NavbarContent>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
+        <NavbarBrand>
+          <div className="img_nav" onClick={() => setLocation('/')}>
+            <img src={logo} alt="" />
+          </div>
+        </NavbarBrand>
+      </NavbarContent>
       <NavbarContent className="options hidden sm:flex gap-4" justify="center">
         <NavbarItem>
           <Link color="foreground" onClick={() => setLocation('/destination')}>
             Destinos
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="/hotels" color="foreground">
-            Hoteles
           </Link>
         </NavbarItem>
         <NavbarItem>
@@ -35,9 +51,6 @@ export default function NavbarOffLogin() {
             Contacto
           </Link>
         </NavbarItem>
-      </NavbarContent>
-      <NavbarContent>
-        <ThemeSwitcher/>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
@@ -63,6 +76,24 @@ export default function NavbarOffLogin() {
           </Button>
         </NavbarItem>
       </NavbarContent>
+      <NavbarMenu>
+        {menuItems.map((item, index) => (
+          <NavbarMenuItem key={`${item}-${index}`}>
+            <Link
+              color={
+                  index > 1 ? 'primary' : 'foreground'
+              }
+              className="w-full"
+              onClick={() => {
+                setLocation(item.route)
+              }}
+              size="lg"
+            >
+              {item.name}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
     </Navbar>
   );
 }

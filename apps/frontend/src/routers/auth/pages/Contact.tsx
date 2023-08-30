@@ -1,13 +1,18 @@
-import { FC } from "react";
+
+import { HeadContact, Icons } from "../../../components";
+import MapsApp from "../../../MapsApp";
 
 
-export interface PropsContact {
 
-}
 
-const Contact: FC<PropsContact> = () => {
+
+const Contact: React.FC = () => {
     return (
-        <div>Contact</div>
+        <>
+            <HeadContact />
+            <Icons />
+            <MapsApp />
+        </>
     )
 }
 

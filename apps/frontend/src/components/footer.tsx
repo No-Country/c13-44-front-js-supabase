@@ -14,7 +14,6 @@ export default function Footer() {
         <>
             <div>
                 <Card className=" p-3 rounded-none w-100% h-[15rem] bg-primary mt-[3rem]  animate-flip-up animate-once">
-
                     <CardBody className="w-full p-0">
 
                     <div className="flex-row flex" >
