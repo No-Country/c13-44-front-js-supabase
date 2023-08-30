@@ -1,27 +1,32 @@
 import React from "react";
-import { Card, CardBody } from "@nextui-org/react";
+import { Button, Card, CardBody } from "@nextui-org/react";
 import { Select, SelectItem } from "@nextui-org/react";
+import { IconTrash } from "@tabler/icons-react";
 
 interface MenuItem {
   label: string;
   items: string[];
 }
 
+
 const menus: MenuItem[] = [
-  { label: "Tipo de alojamiento", items: ["Apartamento", "Motel", "Casa Rural", "Camping", "Glamping", "Albergues"] },
-  { label: "Comodidades", items: ["Apartamento", "Motel", "Casa Rural", "Camping", "Glamping", "Albergues"] },
-  { label: "Clasificaciones", items: ["Apartamento", "Motel", "Casa Rural", "Camping", "Glamping", "Albergues"] },
-  { label: "Precio", items: ["Apartamento", "Motel", "Casa Rural", "Camping", "Glamping", "Albergues"] },
+  { label: "Tipo de alojamiento", items: ["Casa", "Departamento", "Hotel", "Cabaña"] },
+  { label: "Comodidades", items: ["Apartamento", "Motel", "Casa Rural", "Camping",] },
+  { label: "Clasificaciones", items: ["Apartamento", "Motel", "Casa Rural",] },
+  { label: "Precio", items: ["Apartamento", "Motel", "Casa Rural", "Camping",] },
 ];
 
-export function Filters() {
+export function Filters(): JSX.Element {
+
+
+
   return (
     <Card
       shadow="md"
-      className="max-w-5xl w-full shadow bg-primary animate-fade-down animate-once"
+      className="max-w-4xl w-full shadow bg-primary animate-fade-down animate-once"
       radius="lg"
     >
-      <CardBody className="flex-row flex p-3 gap-3">
+      <CardBody className="flex-row flex justify-center p-3 gap-3">
         {menus.map((menu) => (
           <Select
             key={menu.label}
@@ -39,8 +44,12 @@ export function Filters() {
                 {item}
               </SelectItem>
             ))}
+
           </Select>
         ))}
+        <Button className="text-white border-white" variant="bordered" startContent={<IconTrash />}>
+          Limpiar Filtros
+        </Button>
       </CardBody>
     </Card>
   );
