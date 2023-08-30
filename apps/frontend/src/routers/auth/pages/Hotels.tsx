@@ -23,7 +23,7 @@ const Destination: FC<PropsDestination> = () => {
                     {Array.from({ length: rows }).map((_, rowIndex) => (
                         <div key={rowIndex} className="flex flex-col gap-8">
                             {Array.from({ length: cols }).map((_, colIndex) => (
-                                <CardPropiedades key={colIndex} onClick={() => setLocation("/hotels")} />
+                                <CardPropiedades key={colIndex} onClick={() => setLocation("/reservacion")} />
                             ))}
                         </div>
                     ))}
