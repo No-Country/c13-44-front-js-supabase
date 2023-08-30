@@ -8,7 +8,7 @@ export interface PropsDestination {
 }
 
 const Destination: FC<PropsDestination> = () => {
-    const [, setLocation] = useLocation(); //_ para especificar que no se utiliza
+    const [, setLocation] = useLocation();
 
     const rows = 4;
     const cols = 4;
