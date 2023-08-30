@@ -23,7 +23,7 @@ export function Filters(): JSX.Element {
   return (
     <Card
       shadow="md"
-      className="max-w-4xl w-full shadow bg-primary animate-fade-down animate-once"
+      className="max-w-4xl w-full shadow bg-primary animate-fade-down animate-once mt-[1rem]"
       radius="lg"
     >
       <CardBody className="flex-row flex justify-center p-3 gap-3">
