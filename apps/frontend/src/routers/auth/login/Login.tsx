@@ -36,7 +36,7 @@ const Login = () => {
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   return (
-    <div className="flex flex-row justify-center px-5 py-10">
+    <div className="flex flex-row justify-center pt-[10rem]">
       <section>
         <div className="md:w-96 w-full">
           <form className="space-y-5 " onSubmit={handleSubmit(onSubmit as any)} >
