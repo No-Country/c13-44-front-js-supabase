@@ -1,4 +1,4 @@
-import logo from '../img/404.png'
+import logo from '../../../img/404.png'
 export function Error404() {
     return (
         <>
