@@ -9,13 +9,14 @@ import { IconChristmasTree, IconSend } from "@tabler/icons-react";
 import logo from "../img/icono00.png";
 import "./navbar.css";
 import { useLocation } from "wouter";
+import { ThemeSwitcher } from "./theme_button";
 
 export default function NavbarOffLogin() {
-  const [_location, setLocation] = useLocation(); //_ para especificar que no se utiliza
+  const [, setLocation] = useLocation(); //_ para especificar que no se utiliza
 
   return (
     <Navbar className="nav" shouldHideOnScroll>
-      <div className="img_nav">
+      <div className="img_nav" onClick={() => setLocation('/')}>
         <img src={logo} alt="" />
       </div>
       <NavbarContent className="options hidden sm:flex gap-4" justify="center">
@@ -35,6 +36,9 @@ export default function NavbarOffLogin() {
           </Link>
         </NavbarItem>
       </NavbarContent>
+      <NavbarContent>
+        <ThemeSwitcher/>
+      </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
           <IconChristmasTree className="mt-3.5 w-7 h-7" />
@@ -47,6 +51,7 @@ export default function NavbarOffLogin() {
           >
             Iniciar Sesión
           </Button>
+          <IconSend className="mt-4 w-6 h-6" />
           <Button
             onClick={() => setLocation("/register")}
             className="btn1"
