@@ -21,7 +21,7 @@ export default function CardPropiedades({ onClick }: CardPropiedades) {
         className="w-64 h-[300px] col-span-12 sm:col-span-5 pointer-events-auto"
       >
         <CardHeader className="absolute z-10 top-1 flex-col items-start" onClick={onClick}>
-          <Chip color="primary" variant="shadow">
+          <Chip color="default" className="absolute bg-white/30 border-zinc-100/50 z-10" variant="shadow">
             New
           </Chip>
         </CardHeader>

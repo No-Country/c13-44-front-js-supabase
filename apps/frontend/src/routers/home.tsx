@@ -16,8 +16,8 @@ export function Home() {
     <span className="grid gap-24 ">
       <section className="mt-10 flex flex-col items-center ">
         <div className="flex flex-row items-center justify-center ">
-          <div className="flex flex-col h-full">
-            <h1 className="mb-8 mt-16 max-w-xl text-6xl font-semibold animate-fade-right animate-once dark:text-white">
+          <div className="flex flex-col ml-[7.5rem] h-full">
+            <h1 className="mb-6 mt-16 max-w-xl text-6xl font-semibold animate-fade-right animate-once dark:text-white">
               <span className="text-primary">Descubre</span> un nuevo mundo 🌎
               <br /> A tu manera.
             </h1>
