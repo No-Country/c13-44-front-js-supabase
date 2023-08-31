@@ -1,6 +1,6 @@
 import { Button, Card, CardBody } from "@nextui-org/react";
 import { Select, SelectItem } from "@nextui-org/react";
-import { IconTrash, IconStar } from "@tabler/icons-react";
+import { IconTrash } from "@tabler/icons-react";
 
 interface MenuItem {
   label: string;
