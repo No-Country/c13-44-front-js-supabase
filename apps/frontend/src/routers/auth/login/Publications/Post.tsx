@@ -12,7 +12,7 @@ import {
 import CardList from './CardList'
 import TitlePost from './TitlePost'
 
-const Post: React.FC = () => {
+const Posting: React.FC = () => {
   const [postCard, ] = useState<PropsCard[]>([
     {
       posting: <SkeletonCard />,
@@ -37,4 +37,4 @@ const Post: React.FC = () => {
   )
 }
 
-export default Post
+export default Posting
