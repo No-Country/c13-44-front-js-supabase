@@ -5,14 +5,18 @@ import Hotels from "./routers/auth/pages/Hotels";
 import Contact from "./routers/auth/pages/Contact";
 import Login from "./routers/auth/login/Login";
 import Register from "./routers/auth/register/Register";
-import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
-import { Error404 } from "./routers/auth/pages/404";
+import mapboxgl from "mapbox-gl"; // or "const mapboxgl = require('mapbox-gl');"
+
 import Reservar from "./routers/auth/pages/detalles.reservacion";
+import UsuarioPerfil from "./routers/auth/pages/perfil";
+import { Post } from "./routers/auth/pages/post";
+import { Error404 } from "./routers/auth/pages/404";
 import { Route } from "wouter";
 import { Home } from "./routers/home";
-import Post from "./routers/auth/login/Publications/Post";
+import Posting from "./routers/auth/login/Publications/Post";
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiYmFzdGFyZG9zc3MiLCJhIjoiY2xscjFiZXI2MGJ1bDNjdWd3djVxbnl5eiJ9.SsXPnXm1Na-BkCSHLmNKMQ';
+mapboxgl.accessToken =
+  "pk.eyJ1IjoiYmFzdGFyZG9zc3MiLCJhIjoiY2xscjFiZXI2MGJ1bDNjdWd3djVxbnl5eiJ9.SsXPnXm1Na-BkCSHLmNKMQ";
 
 function App() {
   return (
@@ -27,7 +31,10 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/404" component={Error404} />
         <Route path="/reservacion" component={Reservar} />
-        <Route path="/posting" component={Posting}/>
+        <Route path="/posting" component={Posting} />
+        <Route path="/postvivienda" component={Post} />
+        <Route path="/perfil" component={UsuarioPerfil} />
+
         <Footer />
       </span>
     </>
