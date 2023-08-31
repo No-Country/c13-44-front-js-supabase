@@ -27,7 +27,7 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/404" component={Error404} />
         <Route path="/reservacion" component={Reservar} />
-        <Route path="/posting" component={Post}/>
+        <Route path="/posting" component={Posting}/>
         <Footer />
       </span>
     </>
