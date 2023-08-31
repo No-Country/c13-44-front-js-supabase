@@ -10,7 +10,7 @@ import { Error404 } from "./routers/auth/pages/404";
 import Reservar from "./routers/auth/pages/detalles.reservacion";
 import { Route } from "wouter";
 import { Home } from "./routers/home";
-import Post from "./routers/auth/login/Publications/Post";
+import Posting from "./routers/auth/login/Publications/Post";
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmFzdGFyZG9zc3MiLCJhIjoiY2xscjFiZXI2MGJ1bDNjdWd3djVxbnl5eiJ9.SsXPnXm1Na-BkCSHLmNKMQ';
 
