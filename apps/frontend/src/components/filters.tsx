@@ -1,7 +1,6 @@
-import React from "react";
 import { Button, Card, CardBody } from "@nextui-org/react";
 import { Select, SelectItem } from "@nextui-org/react";
-import { IconTrash } from "@tabler/icons-react";
+import { IconTrash, IconStar } from "@tabler/icons-react";
 
 interface MenuItem {
   label: string;
@@ -10,10 +9,14 @@ interface MenuItem {
 
 
 const menus: MenuItem[] = [
-  { label: "Tipo de alojamiento", items: ["Casa", "Departamento", "Hotel", "Cabaña"] },
-  { label: "Comodidades", items: ["Apartamento", "Motel", "Casa Rural", "Camping",] },
-  { label: "Clasificaciones", items: ["Apartamento", "Motel", "Casa Rural",] },
-  { label: "Precio", items: ["Apartamento", "Motel", "Casa Rural", "Camping",] },
+  { label: "Tipo de alojamiento", items: ["Casa", "Departamento", "Hotel", "Cabaña"]},
+  { label: "Comodidades", items: ["se agregan con db"]},
+  { label: "Clasificaciones", items: [`1⭐️`, "2⭐️", "3⭐️", "4⭐️", "5⭐️"]},
+  {
+    label: "precio",
+    items: ["25 - 50 Usd", "50 - 80 Usd", "80 - 100 Usd", "100 - 200 Usd", "200 - 400 Usd"],
+  },
+
 ];
 
 export function Filters(): JSX.Element {

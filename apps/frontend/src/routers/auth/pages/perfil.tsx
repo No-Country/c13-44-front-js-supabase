@@ -1,4 +1,4 @@
-import { Avatar, Button, Divider, Input } from "@nextui-org/react";
+import { Avatar, Button, Tabs, Tab, Input } from "@nextui-org/react";
 import { IconPhotoPlus } from "@tabler/icons-react";
 
 const DatosPerfil = [
@@ -66,29 +66,36 @@ export default function UsuarioPerfil() {
           </div>
         </div>
         <div className="flex flex-col ">
-          <h1 className="font-bold text-xl mt-[2rem]">Edita tu Perfil</h1>
-          <Divider />
-          <div className="grid grid-cols-3 gap-4 mt-4">
-          {DatosPerfil.map((dato) => {
-            return (
-              <div
-                className="flex flex-row justify-center gap-4"
-                key={dato.name}
-              >
-                <Input
-                  type={dato.type}
-                  label={dato.name}
-                  placeholder={dato.placeholder}
-                  labelPlacement="outside"
-                  className="w-[25rem]"
-                />
-              </div>
-            );
-          })}
-            <Button color="primary" className="m-2 mt-7 w-[25rem]">
-                Actualizar 
-            </Button>
-          </div>
+        <div className="flex flex-wrap gap-4">
+          <Tabs variant="underlined" aria-label="Tabs variants">
+            <Tab title="Info">
+
+            </Tab>
+            <Tab title="Editar perfil">
+            <div className="grid grid-cols-3 gap-4 mt-4">
+            {DatosPerfil.map((dato) => {
+              return (
+                <div
+                  className="flex flex-row justify-center gap-4"
+                  key={dato.name}
+                >
+                  <Input
+                    type={dato.type}
+                    label={dato.name}
+                    placeholder={dato.placeholder}
+                    labelPlacement="outside"
+                    className="w-[25rem]"
+                  />
+                </div>
+              );
+            })}
+              <Button color="primary" className="m-2 mt-7 w-[25rem]">
+                  Actualizar 
+              </Button>
+            </div>
+            </Tab>
+          </Tabs>
+        </div>
         </div>
       </div>
     </>
