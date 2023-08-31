@@ -13,11 +13,11 @@ const Destination: FC<PropsDestination> = () => {
 
     return (
         <>
-            <div className='flex justify-center'>
+            <div className='flex justify-center m-[1rem]'>
                 <Filters />
             </div>
             <span>
-                <div className="flex gap-4 justify-center mt-[1rem]">
+                <div className="flex gap-4 justify-center">
                     {Array.from({ length: rows }).map((_, rowIndex) => (
                         <div key={rowIndex} className="flex flex-col gap-4">
                             {Array.from({ length: cols }).map((_, colIndex) => (
