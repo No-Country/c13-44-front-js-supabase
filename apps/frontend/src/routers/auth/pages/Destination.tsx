@@ -7,8 +7,8 @@ export interface PropsDestination {
 }
 
 const Destination: FC<PropsDestination> = () => {
-    const rows = 5;
-    const cols = 5;
+    const rows = 4;
+    const cols = 4;
     const [, setLocation] = useLocation()
 
     return (
@@ -17,9 +17,9 @@ const Destination: FC<PropsDestination> = () => {
                 <Filters />
             </div>
             <span>
-                <div className="flex gap-4 justify-center">
+                <div className="flex gap-7 justify-center">
                     {Array.from({ length: rows }).map((_, rowIndex) => (
-                        <div key={rowIndex} className="flex flex-col gap-4">
+                        <div key={rowIndex} className="flex flex-col gap-7">
                             {Array.from({ length: cols }).map((_, colIndex) => (
                                 <CardDestinos key={colIndex} onClick={() => { setLocation('/hotels') }} />
                             ))}

@@ -14,7 +14,7 @@ const menus: MenuItem[] = [
   { label: "Clasificaciones", items: [`1⭐️`, "2⭐️", "3⭐️", "4⭐️", "5⭐️"]},
   {
     label: "precio",
-    items: ["25 - 50 Usd", "50 - 80 Usd", "80 - 100 Usd", "100 - 200 Usd", "200 - 400 Usd"],
+    items: ["$25 - $50 Usd", "$50 - $80 $Usd", "$80 - $100 Usd", "$100 - $250 Usd", "$250 - $500 Usd", "$500 - $1000 Usd"],
   },
 
 ];

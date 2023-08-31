@@ -28,8 +28,10 @@ export function Home() {
                 casas, cabaña, departamentos, hoteles, etc. los cuales cuentan
                 con calificacion hasta 5⭐️
               </p>
-              <Link className="animate-fade-right animate-once cursor-pointer" onClick={() => {setLocation("/postvivienda")
-              }}>Quieres subir tu propiedad??</Link>
+              <Link className="animate-fade-right animate-once cursor-pointer" onClick={() => {setLocation("/register")
+              }}>
+                Registrate hoy y obten un 5% de descuento <br/> en cualquier arriendo.
+              </Link>
             </section>
           </div>
           <div className="flex flex-col">
