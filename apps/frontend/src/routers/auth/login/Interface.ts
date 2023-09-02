@@ -7,3 +7,9 @@ export interface PropsCard {
 export interface PropsTitle {
   title: ReactNode;
 }
+
+
+
+export interface PropsAction {
+  adding: ReactNode
+}
