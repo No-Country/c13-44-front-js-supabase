@@ -33,7 +33,7 @@ export default function NavbarOffLogin() {
       <NavbarContent>
         <NavbarBrand>
           <div className="max-w-[5rem]" onClick={() => setLocation("/")}>
-            <img src={logo} />
+            <img src={logo}/>
           </div>
         </NavbarBrand>
       </NavbarContent>
