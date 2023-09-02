@@ -1,32 +1,48 @@
 import {
-    Button,
     Card,
-    Skeleton
+    CardFooter,
+    CardHeader,
+    Chip,
+    Image
 } from '@nextui-org/react'
-import { IconTrash } from '@tabler/icons-react'
+import { IconCurrentLocation } from '@tabler/icons-react'
 
 
 export const SkeletonCard = () => {
     return (
         <>
-            <Card className="w-[17rem] h-[17rem] space-y-5 p-4 " radius="md">
-                <Skeleton className="rounded-lg">
-                    <div className="h-24 rounded-lg bg-default-300"></div>
-                </Skeleton>
-                <div className="space-y-3">
-                    <Skeleton className="w-3/5 rounded-lg">
-                        <div className="h-3 w-3/5 rounded-lg bg-default-200"></div>
-                    </Skeleton>
-                    <Skeleton className="w-4/5 rounded-lg">
-                        <div className="h-3 w-4/5 rounded-lg bg-default-200"></div>
-                    </Skeleton>
-                    <Skeleton className="w-2/5 rounded-lg">
-                        <div className="h-3 w-2/5 rounded-lg bg-default-300"></div>
-                    </Skeleton>
-                </div>
-                <Button className='w-[12rem] self-center' color="danger" variant="bordered" startContent={<IconTrash />}>
-                    Eliminar publicación
-                </Button>
+            <Card
+                isFooterBlurred
+                className="w-64 h-[300px] col-span-12 sm:col-span-5 pointer-events-auto"
+            >
+                <CardHeader className="absolute z-10 top-1 flex-col items-start" >
+                    <Chip color="default" className="absolute bg-white/30 border-zinc-100/50 z-10" variant="shadow">
+                        New
+                    </Chip>
+                </CardHeader>
+                <Image
+                    removeWrapper
+                    alt="Card example background"
+                    className="z-0 w-full h-full scale-125 -translate-y-6 object-cover"
+                    src="https://a0.muscache.com/im/pictures/95ecec03-f383-4f01-88e9-29519f65e630.jpg?im_w=1200"
+
+                />
+                <CardFooter  className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
+                    <div>
+                        <p className="text-black font-semibold overflow-clip">
+                            Apartamento 3
+                        </p>
+                        <p className="text-black text-tiny gap-2 flex items-center">
+                            <IconCurrentLocation /> 2.5 km
+                        </p>
+                    </div>
+                    <div className=" flex flex-col items-center">
+                        <span className="line-through">$ 1500</span>
+                        <Chip color="primary" variant="shadow">
+                            $ 999
+                        </Chip>
+                    </div>
+                </CardFooter>
             </Card>
 
         </>
