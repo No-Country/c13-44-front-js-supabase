@@ -60,6 +60,7 @@ export default function UsuarioPerfil({ token }: PerfilToken) {
   const handleLogout = () => {
     sessionStorage.removeItem('token') //Removemos el storage del token para el logout
     setLocation('/login') //De ahi lo retornamos al home-page
+    window.location.reload()
   }
 
 
