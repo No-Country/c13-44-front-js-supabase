@@ -1,4 +1,4 @@
-import NavbarOffLogin from "./components/navbar";
+import NavbarOffLogin from "./components/NavbarLogout/navbar";
 import Footer from "./components/footer";
 import Destination from "./routers/auth/pages/Destination";
 import Hotels from "./routers/auth/pages/Hotels";
@@ -17,6 +17,7 @@ import Posting from "./routers/auth/login/Publications/Post";
 import { useEffect, useState } from "react";
 import Login from "./routers/auth/login/Login";
 import { Token } from "./routers/auth/types";
+import NavbarOnLogin from "./components/NavbarLogin/navbar";
 
 
 mapboxgl.accessToken =
@@ -38,10 +39,12 @@ function App() {
   }, [])
 
 
+
   return (
     <>
       <span className="container min-h-screen flex flex-col mx-auto">
-        <NavbarOffLogin />
+        {/* Si el usuario se loguea entra con avatar y se le eliminan los botones de login y register, por el contrario no */}
+        {token ? <NavbarOnLogin token={token} /> : <NavbarOffLogin />}
         <Route path="/" component={Home} />
         <Route path="/destination" component={Destination} />
         <Route path="/hotels" component={Hotels} />
