@@ -9,5 +9,5 @@ export type Token = {
   }
   
  export type PerfilToken = {
-    token: Token;
+    token: Token | null;
   }
