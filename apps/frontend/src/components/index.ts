@@ -4,5 +4,5 @@ export { default as MapView } from './MapView';
 export { default as Icons } from './MenuIcon/Icons';
 export * from './filters';
 export * from './index';
-export { default as navbar } from './navbar';
+export { default as navbar } from './NavbarLogout/navbarlogout';
 export * from './theme_button';
