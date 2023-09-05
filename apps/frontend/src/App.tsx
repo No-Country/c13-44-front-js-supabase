@@ -1,4 +1,4 @@
-import NavbarOffLogin from "./components/NavbarLogout/navbar";
+import NavbarOffLogin from "./components/NavbarLogout/navbarlogout";
 import Footer from "./components/footer";
 import Destination from "./routers/auth/pages/Destination";
 import Hotels from "./routers/auth/pages/Hotels";
@@ -17,7 +17,7 @@ import Posting from "./routers/auth/login/Publications/Post";
 import { useEffect, useState } from "react";
 import Login from "./routers/auth/login/Login";
 import { Token } from "./routers/auth/types";
-import NavbarOnLogin from "./components/NavbarLogin/navbar";
+import NavbarOnLogin from "./components/NavbarLogin/navbarlogin";
 
 
 mapboxgl.accessToken =
