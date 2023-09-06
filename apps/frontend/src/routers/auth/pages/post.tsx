@@ -38,15 +38,15 @@ type Huespedes = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10";
 
 const PostSchema = object({
 	titulo: string(undefined, [minLength(1), maxLength(30)]),
-	precio: string(undefined, []),
+	precio: number(undefined, [minValue(1), maxValue(100000)]),
 	ubicacion: string(undefined, [minLength(1), maxLength(50)]),
 	prestaciones: string(),
 	ingreso: string(undefined, []),
 	salida: string(undefined, []),
 	tipoVivienda: string(undefined, [minLength(1), maxLength(15)]),
-	limite: string(undefined, [minValue(1), maxValue(10)]),
+	limite: number(undefined, [minValue(1), maxValue(10)]),
 	descripcion: string(undefined, [minLength(1), maxLength(50)]),
-	mascotas: string(),
+	mascotas: boolean(),
 });
 
 const tiposDeVivienda: TipoVivienda[] = [
@@ -243,12 +243,12 @@ export function Post() {
 								label="Tipo de vivienda"
 								labelPlacement="outside"
 								placeholder="ej: casa"
+                                {...register("tiposVivienda")}
 							>
 								{tiposDeVivienda.map((tipo) => (
 									<SelectItem
 										key={tipo}
 										value={tipo}
-										{...register("tiposDeVivienda")}
 									>
 										{tipo.charAt(0).toUpperCase() + tipo.slice(1)}
 									</SelectItem>
@@ -259,9 +259,10 @@ export function Post() {
 								label="Limite de huéspedes"
 								labelPlacement="outside"
 								placeholder="ej: 4"
+                                {...register("limite")}
 							>
 								{huespedes.map((tipo) => (
-									<SelectItem key={tipo} value={tipo} {...register("limite")}>
+									<SelectItem key={tipo} value={tipo} >
 										{tipo.charAt(0).toUpperCase() + tipo.slice(1)}
 									</SelectItem>
 								))}
@@ -283,6 +284,7 @@ export function Post() {
 								labelPlacement="outside"
 								placeholder="ingresa tu descripcion"
 								defaultValue="Describe tu propiedad al detalle, para llamar mas la atención."
+                                {...register("descripcion")}
 							/>
 							<div className="flex justify-end mt-[1rem]">
 								<Button
