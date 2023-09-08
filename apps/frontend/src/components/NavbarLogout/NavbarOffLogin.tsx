@@ -39,9 +39,8 @@ export default function NavbarOffLogin() {
   const menuItems = [
     { name: "Destinos", route: "/destination" },
     { name: "Contacto", route: "/contact" },
-    { name: "Perfil", route: "/perfil" },
     { name: "Iniciar Sesión", route: "/login" },
-    { name: "Registro", route: "/register" },
+    { name: "Registrarse", route: "/register" },
   ];
 
   const handleLogout = async () => {
@@ -56,7 +55,7 @@ export default function NavbarOffLogin() {
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
-      className="hover:cursor-pointer"
+      className="hover:cursor-pointer "
       shouldHideOnScroll
     >
       <NavbarContent>
@@ -67,7 +66,7 @@ export default function NavbarOffLogin() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="options hidden lg:flex gap-2" justify="center">
+      <NavbarContent className="options hidden lg:flex gap-2 self-start pr-[12rem]">
         <NavbarItem>
           <Link color="foreground" onClick={() => setLocation("/destination")}>
             Destinos
@@ -84,24 +83,8 @@ export default function NavbarOffLogin() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" onClick={() => setLocation("/postvivienda")}>
-            Crear publicación
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" onClick={() => setLocation("/posting")}>
-            Publicaciónes
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
           <ThemeSwitcher />
         </NavbarItem>
-      </NavbarContent>
-
-      <NavbarContent justify="end" className="lg:hidden">
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-        />
       </NavbarContent>
 
       {user ? (
@@ -186,25 +169,29 @@ export default function NavbarOffLogin() {
               </Button>
             </NavbarItem>
           </NavbarContent>
+          <NavbarContent justify="end" className="lg:hidden">
+            <NavbarMenuToggle
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            />
+          </NavbarContent>
+          <NavbarMenu>
+            {menuItems.map((item, index) => (
+              <NavbarMenuItem key={`${item}-${index}`}>
+                <Link
+                  color={index > 1 ? "primary" : "foreground"}
+                  className="w-full"
+                  onClick={() => {
+                    setLocation(item.route);
+                  }}
+                  size="lg"
+                >
+                  {item.name}
+                </Link>
+              </NavbarMenuItem>
+            ))}
+          </NavbarMenu>
         </>
       )}
-
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={index > 2 ? "primary" : "foreground"}
-              className="w-full"
-              onClick={() => {
-                setLocation(item.route);
-              }}
-              size="lg"
-            >
-              {item.name}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
     </Navbar>
   );
 }
