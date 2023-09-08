@@ -63,11 +63,6 @@ export default function UsuarioPerfil() {
     <>
       <div className="container">
         <div className="flex gap-[2rem]">
-          <Button
-            color="danger"
-            variant="bordered"
-            startContent={<IconLogout />}
-          />
           <h1 className="font-bold text-2xl">Mi Perfil</h1>
         </div>
         <div className="flex flex-row gap-4 justify-between items-center pt-[1rem]">
