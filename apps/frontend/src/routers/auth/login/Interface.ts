@@ -1,15 +1,21 @@
-import { ReactNode } from "react";
 
-export interface PropsCard {
-  posting: ReactNode;
+
+
+export interface CardInfo {
+  img: (event: React.MouseEvent<HTMLInputElement>) => void,
+  titulo: string;
+  precio: number;
+  ubicacion: string;
+  prestaciones: any[];
+  ingreso?: string; // Cambiando undefined a string si ingreso y salida son fechas
+  salida?: string;
+  tipoVivienda: string;
+  limite: number;
+  descripcion: string;
+  mascotas: boolean;
 }
 
-export interface PropsTitle {
-  title: ReactNode;
+export interface PostCardProps {
+  post: CardInfo;
 }
 
-
-
-export interface PropsAction {
-  adding: ReactNode
-}
