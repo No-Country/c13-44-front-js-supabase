@@ -28,7 +28,8 @@ import {
   string,
   uuid,
 } from "valibot";
-import { AuthContext, handleContext } from "../../../context/Auth";
+import { useLocation } from "wouter";
+import { AuthContext } from "../../../context/Auth";
 import { supabaseClient } from "../../../supabase";
 import { Error404 } from "./404";
 
@@ -70,9 +71,9 @@ const defaultValues = {
 };
 
 export function Post() {
-  const { isLogged } = AuthContext();
-  const { selectedImage, handleImageChange} = handleContext();
+  const { isLogged, user } = AuthContext();
   const [prestaciones, setPrestaciones] = useState([]);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const {
     register,
@@ -87,12 +88,20 @@ export function Post() {
     },
   });
 
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setSelectedImage(imageUrl);
+    }
+  };
+
   const onSubmit: SubmitHandler<Inputvali<typeof PostSchema>> = async (
     form
   ) => {
     const { data, error } = await supabaseClient
       .from("publicacion")
-      .insert([form]);
+      .insert([{ ...form, user: user?.user.id }]);
 
     console.log("send", error);
   };
@@ -259,7 +268,6 @@ export function Post() {
                     setValue("limite", event.target.value);
                   },
                 })}
-                name="limite"
               >
                 {huespedes.map((tipo) => (
                   <SelectItem key={tipo} value={tipo}>
@@ -275,7 +283,6 @@ export function Post() {
                       setValue("mascotas", event.target.checked);
                     },
                   })}
-                  name="mascotas"
                 />
               </div>
             </div>
@@ -287,7 +294,6 @@ export function Post() {
                 labelPlacement="outside"
                 placeholder="Describe tu propiedad al detalle, para llamar mas la atención."
                 {...register("descripcion")}
-                name="descripcion"
               />
               <div className="flex justify-end mt-[1rem]">
                 <Button
