@@ -68,6 +68,8 @@ export default function Reservar() {
 			.from("mis_reservaciones")
 			.insert([{ ...form, user_id }]);
 
+		console.log(data);
+
 		console.log("send", error);
 	};
 
@@ -177,7 +179,6 @@ export default function Reservar() {
 								<li>
 									<IconWifi className="" />
 								</li>
-								<li></li>
 								<li>
 									<IconCooker />
 								</li>
@@ -190,7 +191,11 @@ export default function Reservar() {
 							</ul>
 						</div>
 					</Tab>
-					<Tab title="Reseñas"></Tab>
+					<Tab title="Reseñas">
+						<div>
+							<h1>Proximamente</h1>
+						</div>
+					</Tab>
 				</Tabs>
 			</div>
 		</>
