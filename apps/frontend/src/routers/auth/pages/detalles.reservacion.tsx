@@ -60,13 +60,22 @@ export default function Reservar() {
 	});
 
 	const user_id = user?.user.id;
+	
+	if (user_id) {
+		
+		const getParams = new URLSearchParams(window.location.search);
+		const id = getParams.get("id");
+		const publicacion_id = JSON.parse(id)
+		
+	}
 
 	const onSubmit: SubmitHandler<Inputvali<typeof ReservaSchema>> = async (
 		form,
 	) => {
 		const { data, error } = await supabaseClient
 			.from("mis_reservaciones")
-			.insert([{ ...form, user_id }]);
+			.insert([{ ...form, user_id, publicacion_id }]);
+			
 
 		console.log(data);
 
