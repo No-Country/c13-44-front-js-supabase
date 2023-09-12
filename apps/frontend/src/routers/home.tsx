@@ -1,15 +1,14 @@
 import logo from "../img/icono00.png";
 import { useLocation } from "wouter";
 import { Filters } from "../components/filters";
-import {
-  Avatar,
-  Button,
-} from "@nextui-org/react";
-import { IconArrowBigLeft, IconArrowBigRight, IconCurrentLocation } from "@tabler/icons-react";
+import { Avatar, Button } from "@nextui-org/react";
+import { IconArrowBigLeft, IconArrowBigRight } from "@tabler/icons-react";
 import CardPropiedades from "../components/card";
+import { useFetchCards } from "../hooks/Customs/useFetchCards";
 
 export function Home() {
-  const [, setLocation] = useLocation(); 
+  const [, setLocation] = useLocation();
+  const myCards = useFetchCards();
 
   return (
     <span className="grid gap-24 ">
@@ -49,11 +48,17 @@ export function Home() {
             empieza a planificar tu viaje
           </p>
           <div className="flex gap-5 ">
-            {[1, 2, 3, 4].map((value) => (
-              <CardPropiedades key={value} onClick={() => {setLocation("/reservacion")
-             console.log("push");
-             }}/>
-            ))}
+            <>
+              {myCards.map((posting, index) => (
+                <CardPropiedades
+                  key={`index-${index}-${posting.id}`}
+                  titulo={posting.titulo}
+                  precio={posting.precio}
+                  localizacion={posting.localizacion}
+                  imagen={posting.imagen}
+                />
+              ))}
+            </>
           </div>
 
           <div className="flex gap-5">
@@ -86,8 +91,12 @@ export function Home() {
               <IconArrowBigLeft />
             </Button>
             {[1, 2, 3, 4].map((value) => (
-              <CardPropiedades key={value} onClick={() => {setLocation("/reservacion")
-              }}/>
+              <CardPropiedades
+                key={value}
+                onClick={() => {
+                  setLocation("/reservacion");
+                }}
+              />
             ))}
             <Button
               variant="shadow"
