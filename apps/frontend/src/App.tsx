@@ -1,10 +1,10 @@
+import mapboxgl from "mapbox-gl"; // or "const mapboxgl = require('mapbox-gl');"
 import NavbarOffLogin from "./components/NavbarLogout/NavbarOffLogin";
 import Footer from "./components/footer";
+import { MisReservas } from "./components/misreservas";
 import Contact from "./routers/auth/pages/Contact";
 import Destination from "./routers/auth/pages/Destination";
 import Hotels from "./routers/auth/pages/Hotels";
-
-import mapboxgl from "mapbox-gl"; // or "const mapboxgl = require('mapbox-gl');"
 import Register from "./routers/auth/register/Register";
 
 import { useEffect } from "react";
@@ -18,49 +18,50 @@ import { Post } from "./routers/auth/pages/post";
 import { Home } from "./routers/home";
 
 mapboxgl.accessToken =
-  "pk.eyJ1IjoiYmFzdGFyZG9zc3MiLCJhIjoiY2xscjFiZXI2MGJ1bDNjdWd3djVxbnl5eiJ9.SsXPnXm1Na-BkCSHLmNKMQ";
+	"pk.eyJ1IjoiYmFzdGFyZG9zc3MiLCJhIjoiY2xscjFiZXI2MGJ1bDNjdWd3djVxbnl5eiJ9.SsXPnXm1Na-BkCSHLmNKMQ";
 
 function App() {
-  const { setUser, user } = AuthContext();
+	const { setUser, user } = AuthContext();
 
-  useEffect(() => {
-    setUser();
-  }, [setUser]);
+	useEffect(() => {
+		setUser();
+	}, [setUser]);
 
-  return (
-    <>
-      <span className="container min-h-screen flex flex-col mx-auto">
-        <NavbarOffLogin />
-        {/* Si existe ingresa a estas rutas */}
-        {user ? (
-          <>
-            <Route path="/" component={Home} />
-            <Route path="/destination" component={Destination} />
-            <Route path="/hotels" component={Hotels} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/perfil" component={UsuarioPerfil} />
-            <Route path="/404" component={Error404} />
-            <Route path="/reservacion" component={Reservar} />
-            <Route path="/postvivienda" component={Post} />
-          </>
-        ) : (
-          <>
-            <Route path="/" component={Home} />
-            <Route path="/404" component={Error404} />
-            <Route path="/reservacion" component={Reservar} />
-            <Route path="/destination" component={Destination} />
-            <Route path="/hotels" component={Hotels} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
-          </>
-        )}
-        {/* Si no existe ingresa a estas */}
+	return (
+		<>
+			<span className="container min-h-screen flex flex-col mx-auto">
+				<NavbarOffLogin />
+				{/* Si existe ingresa a estas rutas */}
+				{user ? (
+					<>
+						<Route path="/" component={Home} />
+						<Route path="/destination" component={Destination} />
+						<Route path="/hotels" component={Hotels} />
+						<Route path="/contact" component={Contact} />
+						<Route path="/perfil" component={UsuarioPerfil} />
+						<Route path="/404" component={Error404} />
+						<Route path="/reservacion" component={Reservar} />
+						<Route path="/postvivienda" component={Post} />
+						<Route path="/misreservaciones" component={MisReservas} />
+					</>
+				) : (
+					<>
+						<Route path="/" component={Home} />
+						<Route path="/404" component={Error404} />
+						<Route path="/reservacion" component={Reservar} />
+						<Route path="/destination" component={Destination} />
+						<Route path="/hotels" component={Hotels} />
+						<Route path="/contact" component={Contact} />
+						<Route path="/login" component={Login} />
+						<Route path="/register" component={Register} />
+					</>
+				)}
+				{/* Si no existe ingresa a estas */}
 
-        <Footer />
-      </span>
-    </>
-  );
+				<Footer />
+			</span>
+		</>
+	);
 }
 
 export default App;

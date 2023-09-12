@@ -59,6 +59,9 @@ importers:
       tailwindcss-animated:
         specifier: ^1.0.1
         version: 1.0.1(tailwindcss@3.3.3)
+      uuid:
+        specifier: ^9.0.0
+        version: 9.0.0
       valibot:
         specifier: ^0.13.1
         version: 0.13.1
@@ -11192,7 +11195,6 @@ packages:
   /uuid@9.0.0:
     resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
     hasBin: true
-    dev: true
 
   /v8-to-istanbul@9.1.0:
     resolution: {integrity: sha512-6z3GW9x8G1gd+JIIgQQQxXuiJtCXeAjp6RaPEPLv62mH3iPHPxV6W3robxtCzNErRo6ZwTmzWhsbNvjyEBKzKA==}
