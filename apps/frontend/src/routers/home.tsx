@@ -1,14 +1,15 @@
 import logo from "../img/icono00.png";
-import { useLocation } from "wouter";
+import { useLocation, useRoute } from "wouter";
 import { Filters } from "../components/filters";
 import { Avatar, Button } from "@nextui-org/react";
 import { IconArrowBigLeft, IconArrowBigRight } from "@tabler/icons-react";
-import CardPropiedades from "../components/card";
 import { useFetchCards } from "../hooks/Customs/useFetchCards";
+import CardPropiedades from "../components/card";
 
 export function Home() {
   const [, setLocation] = useLocation();
   const myCards = useFetchCards();
+
 
   return (
     <span className="grid gap-24 ">
@@ -51,7 +52,9 @@ export function Home() {
             <>
               {myCards.map((posting, index) => (
                 <CardPropiedades
-                  key={`index-${index}-${posting.id}`}
+                  onClick={() => setLocation(`/reservacion/${posting.id}`)}
+                  key={`index-${index}`}
+                  id={posting.id}
                   titulo={posting.titulo}
                   precio={posting.precio}
                   localizacion={posting.localizacion}
