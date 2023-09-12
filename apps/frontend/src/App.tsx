@@ -11,7 +11,6 @@ import { useEffect } from "react";
 import { Route } from "wouter";
 import { AuthContext } from "./context/Auth";
 import Login from "./routers/auth/login/Login";
-import Posting from "./routers/auth/login/Publications/Post";
 import { Error404 } from "./routers/auth/pages/404";
 import Reservar from "./routers/auth/pages/detalles.reservacion";
 import UsuarioPerfil from "./routers/auth/pages/perfil";
@@ -43,7 +42,6 @@ function App() {
             <Route path="/404" component={Error404} />
             <Route path="/reservacion" component={Reservar} />
             <Route path="/postvivienda" component={Post} />
-            <Route path="/posting" component={Posting} />
           </>
         ) : (
           <>

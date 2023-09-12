@@ -5,6 +5,7 @@ import CardPropiedades from "../../../components/card";
 import { MisReservas } from "../../../components/misreservas";
 import { AuthContext } from "../../../context/Auth";
 import { supabaseClient } from "../../../supabase";
+import Posting from "../login/Publications/Post";
 
 const DataUser = [
 	{
@@ -127,11 +128,6 @@ export default function UsuarioPerfil() {
 											</div>
 										))}
 									</div>
-								</span>
-							</Tab>
-							<Tab title="Mis Reservaciones">
-								<span>
-									<MisReservas />
 								</span>
 							</Tab>
 							<Tab title="Editar perfil">

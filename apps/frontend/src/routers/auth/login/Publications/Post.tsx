@@ -1,22 +1,13 @@
 import { useState } from "react";
-import { PropsAction, PropsCard, PropsTitle } from "../Interface";
+import { PropsAction, PropsCard } from "../Interface";
 import { SkeletonCard } from "./Skeleton";
-
-import CardList from "./CardList";
-import TitlePost from "./TitlePost";
-
 import ActionsCard from "../CreatePost/ActionsCard";
+import CardList from "./CardList";
 
 const Posting = () => {
   const [postCard] = useState<PropsCard[]>([
     {
       posting: <SkeletonCard />,
-    },
-  ]);
-
-  const [postTitle] = useState<PropsTitle[]>([
-    {
-      title: <TitlePost />,
     },
   ]);
 
@@ -28,11 +19,7 @@ const Posting = () => {
 
   return (
     <>
-      <CardList
-        postCard={postCard}
-        postTitle={postTitle}
-        postAction={postAction}
-      />
+      <CardList postCard={postCard} postAction={postAction} />
     </>
   );
 };
