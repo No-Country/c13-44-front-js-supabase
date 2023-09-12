@@ -130,6 +130,9 @@ export default function UsuarioPerfil() {
 									</div>
 								</span>
 							</Tab>
+							<Tab title="Mis Reservaciones">
+								<MisReservas />
+							</Tab>
 							<Tab title="Editar perfil">
 								<div className="grid grid-cols-3 gap-4 mt-4">
 									{ActualizarPerfil.map((dato) => {
