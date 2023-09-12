@@ -4,6 +4,7 @@ import { useLocation } from "wouter";
 import CardPropiedades from "../../../components/card";
 import { supabaseClient } from "../../../supabase";
 import { AuthContext } from "../../../context/Auth";
+import Posting from "../login/Publications/Post";
 
 const DataUser = [
   {
@@ -53,7 +54,7 @@ const ActualizarPerfil = [
 ];
 
 export default function UsuarioPerfil() {
-  const { setUser, user } = AuthContext();
+  const { user } = AuthContext();
   const [, setLocation] = useLocation();
 
   const rows = 1;
@@ -114,18 +115,7 @@ export default function UsuarioPerfil() {
                 </div>
                 <Divider />
                 <span>
-                  <div className="flex gap-8 justify-start mt-4 ">
-                    {Array.from({ length: rows }).map((_, rowIndex) => (
-                      <div key={rowIndex} className="flex flex-col gap-8">
-                        {Array.from({ length: cols }).map((_, colIndex) => (
-                          <CardPropiedades
-                            key={colIndex}
-                            onClick={() => setLocation("/reservacion")}
-                          />
-                        ))}
-                      </div>
-                    ))}
-                  </div>
+                  <Posting />
                 </span>
               </Tab>
               <Tab title="Editar perfil">
