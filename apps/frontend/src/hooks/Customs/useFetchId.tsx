@@ -1,49 +1,55 @@
 import { useEffect, useState } from "react";
 import { supabaseClient } from "../../supabase";
 
-export const useFetchId = (id) => {
-  const [myCard, setMyCard] = useState();
+
+interface TypesState {
+  id: string
+  publicacion: string[]
+}
+
+interface TypesCard {
+  id: string
+  cardParams: string[]
+}
+
+
+export const useFetchId = (id: string) => {
+  const [myCard, setMyCard] = useState<string [] | TypesState>([]);
 
   useEffect(() => {
-    async function fetchCard(prestacionessub: {
-      benefit: string | null;
-      id: string;
-    }) {
+    async function fetchCard(cardParams: TypesCard[]) {
       const { data: publicacion } = await supabaseClient
         .from("publicacion")
         .select("*")
         .eq("id", id);
 
-      console.log(prestacionessub);
-
       if (publicacion) {
         const data = publicacion.map(({ prestaciones, ...item }) => {
           return {
-            ...item,
-            prestaciones: prestaciones?.map((prestacion: string) => {
+            id: item.id,
+            publicacion: prestaciones?.map((params: string) => {
               return (
-                prestacionessub.find(
-                  (prestacionsub) => prestacionsub.id === prestacion
-                )?.benefit || null
+                cardParams.find((subCardId) => subCardId.id === params
+                )?.cardParams as string[]
               );
             }),
           };
         });
         
-        setMyCard(data[0]);
+        setMyCard(data[0] as any);
         console.log(data);
       }
     }
     async function fetchPrestaciones() {
       const { data } = await supabaseClient.from("benefits").select("*");
 
-      fetchCard(data);
+      fetchCard(data as any[]);
     }
 
     (async () => {
       await fetchPrestaciones();
     })();
-  }, []);
+  }, [id]);
   return myCard;
 };
 
