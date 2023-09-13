@@ -72,7 +72,8 @@ export default function Reservar({ id }) {
 		const fechaSalida = getValues("salida");
 		const tiempoDeEstadia = fechaSalida - fechaIngreso;
 		const noches = tiempoDeEstadia / (1000 * 60 * 60 * 24);
-		const total = noches * tarifa;
+		const precioTotalNoches = 50 * noches;
+		const total = precioTotalNoches + precioTotalNoches * tarifa;
 		setTotal({ total, noches });
 	}, [getValues("ingreso"), getValues("salida")]);
 	console.log(total);
