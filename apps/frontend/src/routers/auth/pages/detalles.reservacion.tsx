@@ -44,13 +44,15 @@ const defaultValues = {
 	salida: undefined,
 	huespedes: 0,
 };
-
+const Precio = 50;
 const tarifa = 0.15;
 
 export default function Reservar({ id }) {
 	const [total, setTotal] = useState({
 		noches: null,
 		total: null,
+		tarifaReal: null,
+		precioTotalNoches: null,
 	});
 	const { isLogged, user } = AuthContext();
 	const myCard = useFetchId(id);
@@ -72,10 +74,12 @@ export default function Reservar({ id }) {
 		const fechaSalida = getValues("salida");
 		const tiempoDeEstadia = fechaSalida - fechaIngreso;
 		const noches = tiempoDeEstadia / (1000 * 60 * 60 * 24);
-		const precioTotalNoches = 50 * noches;
-		const total = precioTotalNoches + precioTotalNoches * tarifa;
-		setTotal({ total, noches });
+		const precioTotalNoches = Precio * noches;
+		const tarifaReal = precioTotalNoches * tarifa;
+		const total = precioTotalNoches + tarifaReal;
+		setTotal({ total, noches, tarifaReal, precioTotalNoches });
 	}, [getValues("ingreso"), getValues("salida")]);
+
 	console.log(total);
 
 	const user_id = user?.user.id;
@@ -143,15 +147,31 @@ export default function Reservar({ id }) {
 							</div>
 							<div className="flex flex-row ml-[4rem] mt-[1rem]">
 								<Huespedes />
-								<div className="ml-[2rem]">
+								<div className="ml-[2rem] ">
 									<ul>
-										<li className="flex flex-row text-end ">
+										<li className="flex flex-row text-end justify-between">
 											Precio por Noche:
-											<span className="flex text-end text-primary ">$$$</span>
+											<div className="flex flex-row text-end">
+												<span className="flex text-end text-primary ">$</span>
+												{Precio}
+											</div>
 										</li>
-										<li className="flex flex-row text-end ">
+										<li className="flex flex-row text-end justify-between">
+											${Precio} USD X {total.noches} noches:
+											<div className="flex flex-row text-end">
+												<span className="flex text-end text-primary ml-[8rem]">
+													{" "}
+													$
+												</span>
+												{total.precioTotalNoches}
+											</div>
+										</li>
+										<li className="flex flex-row text-end justify-between">
 											Tarifa por servivio:
-											<span className="flex text-end text-primary ">$$$</span>
+											<div className="flex flex-row text-end">
+												<span className="flex text-end text-primary ">$</span>
+												{total.tarifaReal}
+											</div>
 										</li>
 									</ul>
 								</div>
@@ -165,9 +185,14 @@ export default function Reservar({ id }) {
 								>
 									Reservar
 								</Button>
-								<h1 className="flex flex-row text-end font-bold text-5xl mt-[1rem] ml-[2rem]">
+								<h1 className="flex flex-row text-end font-bold text-5xl mt-[1rem] ml-[2rem] justify-between">
 									Total :
-									<span className="flex text-end text-primary ">$$$</span>
+									<div className="flex flex-row text-end justify-end">
+										<span className="flex text-end text-primary ml-[4rem] justify-end">
+											$
+										</span>
+										{total.total}
+									</div>
 								</h1>
 							</div>
 						</div>
