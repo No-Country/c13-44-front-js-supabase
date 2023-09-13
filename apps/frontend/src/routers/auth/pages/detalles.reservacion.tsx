@@ -44,8 +44,8 @@ const defaultValues = {
 	salida: undefined,
 	huespedes: 0,
 };
-const Precio = 50;
-const tarifa = 0.15;
+const Precio = 40;
+const tarifa = 0.1;
 
 export default function Reservar({ id }) {
 	const [total, setTotal] = useState({

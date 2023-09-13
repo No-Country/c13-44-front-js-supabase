@@ -37,7 +37,7 @@ export default function NavbarOffLogin() {
 	const { user, setUser } = AuthContext();
 
 	const menuItems = [
-		{ name: "Destinos", route: "/destination" },
+		{ name: "Hoteles", route: "/hoteles" },
 		{ name: "Contacto", route: "/contact" },
 		{ name: "Iniciar Sesión", route: "/login" },
 		{ name: "Registrarse", route: "/register" },
@@ -67,18 +67,18 @@ export default function NavbarOffLogin() {
 			</NavbarContent>
 			<NavbarContent className="options hidden lg:flex gap-2 self-start pr-[12rem]">
 				<NavbarItem>
-					<Link color="foreground" onClick={() => setLocation("/destination")}>
-						Destinos
+					<Link color="foreground" onClick={() => setLocation("/")}>
+						Hogar
+					</Link>
+				</NavbarItem>
+				<NavbarItem>
+					<Link color="foreground" onClick={() => setLocation("/hotels")}>
+						Hoteles
 					</Link>
 				</NavbarItem>
 				<NavbarItem>
 					<Link color="foreground" onClick={() => setLocation("/contact")}>
 						Contacto
-					</Link>
-				</NavbarItem>
-				<NavbarItem>
-					<Link color="foreground" onClick={() => setLocation("/reservacion")}>
-						Reservar
 					</Link>
 				</NavbarItem>
 				<NavbarItem>
