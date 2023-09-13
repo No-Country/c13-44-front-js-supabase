@@ -35,14 +35,14 @@ import { imageURL } from "../../../supabase";
 import { Error404 } from "./404";
 
 const ReservaSchema = object({
-	ingreso: date(undefined, []),
-	salida: date(undefined, []),
+	fecha_inicio: date(undefined, []),
+	fecha_final: date(undefined, []),
 	huespedes: string(undefined, [minLength(1), maxLength(10)]),
 });
 
 const defaultValues = {
-	ingreso: undefined,
-	salida: undefined,
+	fecha_inicio: undefined,
+	fecha_final: undefined,
 	huespedes: 0,
 };
 
@@ -58,8 +58,6 @@ export default function Reservar({ id }) {
 	const { isLogged, user } = AuthContext();
 	const myCard = useFetchId(id);
 
-	console.log("carta", myCard);
-
 	const {
 		getValues,
 		register,
@@ -73,26 +71,29 @@ export default function Reservar({ id }) {
 	});
 
 	useEffect(() => {
-		const fechaIngreso = getValues("ingreso");
-		const fechaSalida = getValues("salida");
+		const fechaIngreso = getValues("fecha_inicio");
+		const fechaSalida = getValues("fecha_final");
 		const tiempoDeEstadia = fechaSalida - fechaIngreso;
 		const noches = tiempoDeEstadia / (1000 * 60 * 60 * 24);
-		const precioTotalNoches = myCard.precio ?? 2 * noches;
+		const precioTotalNoches = myCard.precio * noches;
 		const tarifaReal = precioTotalNoches * tarifa;
 		const total = precioTotalNoches + tarifaReal;
 		setTotal({ total, noches, tarifaReal, precioTotalNoches });
-	}, [getValues("ingreso"), getValues("salida")]);
+	}, [getValues("fecha_inicio"), getValues("fecha_final")]);
 
 	console.log(total);
-
+	const publicacion_id = id;
 	const user_id = user?.user.id;
-
+	const fecha_compra = new Date();
+	const valor_compra = total.total;
 	const onSubmit: SubmitHandler<Inputvali<typeof ReservaSchema>> = async (
 		form,
 	) => {
 		const { data, error } = await supabaseClient
 			.from("mis_reservaciones")
-			.insert([{ ...form, user_id }]);
+			.insert([
+				{ ...form, user_id, publicacion_id, fecha_compra, valor_compra },
+			]);
 
 		console.log(data);
 
@@ -133,7 +134,7 @@ export default function Reservar({ id }) {
 								</Button>
 							</div>
 							<h1 className="font-bold text-lg text-primary">
-								Cabaña, Colombia, Medellin
+								{myCard.tipoVivienda},{myCard.ubicacion}
 							</h1>
 							<Divider className="w-[50rem] h-[0.1rem]" />
 							<div className="flex flex-row justify-center">
@@ -142,14 +143,14 @@ export default function Reservar({ id }) {
 									type="date"
 									label="Ingreso"
 									placeholder="Ingreso"
-									{...register("ingreso", { valueAsDate: true })}
+									{...register("fecha_inicio", { valueAsDate: true })}
 								/>
 								<Input
 									className="w-[20rem] m-[1rem]"
 									type="date"
 									label="Salida"
 									placeholder="Salida"
-									{...register("salida", { valueAsDate: true })}
+									{...register("fecha_final", { valueAsDate: true })}
 								/>
 							</div>
 							<div className="flex flex-row ml-[4rem] mt-[1rem]">
@@ -209,23 +210,12 @@ export default function Reservar({ id }) {
 					<Tab title="Descripcion">
 						<div className="m-[1rem]">
 							<h1 className="font-bold mb-[1rem]">Descripcion</h1>
-							<p></p>
+							<p>{myCard.descripcion}</p>
 							<h1 className="font-bold mt-[2rem]">
 								Las prestaciones disponibles
 							</h1>
 							<ul>
-								<li>
-									<IconWifi className="" />
-								</li>
-								<li>
-									<IconCooker />
-								</li>
-								<li>
-									<IconDeviceTv />
-								</li>
-								<li>
-									<IconParking />
-								</li>
+								<li>{myCard.publicacion}</li>
 							</ul>
 						</div>
 					</Tab>
