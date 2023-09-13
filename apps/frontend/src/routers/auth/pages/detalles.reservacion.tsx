@@ -31,6 +31,7 @@ import Huespedes from "../../../components/huespedes.dropdown";
 import { AuthContext } from "../../../context/Auth";
 import { useFetchId } from "../../../hooks/Customs/useFetchId";
 import { supabaseClient } from "../../../supabase";
+import { imageURL } from "../../../supabase";
 import { Error404 } from "./404";
 
 const ReservaSchema = object({
@@ -113,8 +114,8 @@ export default function Reservar({ id }) {
 								alt="Card example background"
 								className="z-0 w-[40rem]  "
 								src={
-									myCard.imagen
-										? `${imageURL}${props.imagen}`
+									myCard.image
+										? `${imageURL}${myCard.image}`
 										: "https://a0.muscache.com/im/pictures/95ecec03-f383-4f01-88e9-29519f65e630.jpg?im_w=1200"
 								}
 							/>
