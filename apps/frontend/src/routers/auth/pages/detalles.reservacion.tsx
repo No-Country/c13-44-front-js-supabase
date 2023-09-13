@@ -112,7 +112,11 @@ export default function Reservar({ id }) {
 								removeWrapper
 								alt="Card example background"
 								className="z-0 w-[40rem]  "
-								src="https://a0.muscache.com/im/pictures/95ecec03-f383-4f01-88e9-29519f65e630.jpg?im_w=1200"
+								src={
+									myCard.imagen
+										? `${imageURL}${props.imagen}`
+										: "https://a0.muscache.com/im/pictures/95ecec03-f383-4f01-88e9-29519f65e630.jpg?im_w=1200"
+								}
 							/>
 						</div>
 						<div className="flex flex-col mt-[2rem] ml-[2rem]">
@@ -204,16 +208,7 @@ export default function Reservar({ id }) {
 					<Tab title="Descripcion">
 						<div className="m-[1rem]">
 							<h1 className="font-bold mb-[1rem]">Descripcion</h1>
-							<p>
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-								Accusamus ex totam voluptatibus ad, minus quo veritatis, a quas
-								porro cum vel sit libero non in quasi! Nostrum provident
-								repellendus sunt. Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Ut commodi incidunt iusto maiores, ex expedita
-								eligendi assumenda facere voluptate dolorum molestiae neque
-								asperiores temporibus, veritatis quod voluptates. Molestias,
-								fugit voluptatem.
-							</p>
+							<p></p>
 							<h1 className="font-bold mt-[2rem]">
 								Las prestaciones disponibles
 							</h1>
