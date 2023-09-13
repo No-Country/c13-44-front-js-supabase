@@ -24,11 +24,12 @@ export const useFetchId = (id: string) => {
 			if (publicacion) {
 				const data = publicacion.map(({ prestaciones, ...item }) => {
 					return {
+						...item,
 						id: item.id,
 						publicacion: prestaciones?.map((params: string) => {
 							return cardParams.find(
 								(subCardId) => subCardId.id === params,
-							)?.cardParams as string[];
+							)?.benefit as string[];
 						}),
 					};
 				});
@@ -47,5 +48,6 @@ export const useFetchId = (id: string) => {
 			await fetchPrestaciones();
 		})();
 	}, [id]);
+
 	return myCard;
 };
