@@ -44,7 +44,7 @@ const defaultValues = {
 	salida: undefined,
 	huespedes: 0,
 };
-const Precio = 40;
+
 const tarifa = 0.1;
 
 export default function Reservar({ id }) {
@@ -56,6 +56,8 @@ export default function Reservar({ id }) {
 	});
 	const { isLogged, user } = AuthContext();
 	const myCard = useFetchId(id);
+
+	console.log("carta", myCard);
 
 	const {
 		getValues,
@@ -74,7 +76,7 @@ export default function Reservar({ id }) {
 		const fechaSalida = getValues("salida");
 		const tiempoDeEstadia = fechaSalida - fechaIngreso;
 		const noches = tiempoDeEstadia / (1000 * 60 * 60 * 24);
-		const precioTotalNoches = Precio * noches;
+		const precioTotalNoches = myCard.precio ?? 2 * noches;
 		const tarifaReal = precioTotalNoches * tarifa;
 		const total = precioTotalNoches + tarifaReal;
 		setTotal({ total, noches, tarifaReal, precioTotalNoches });
@@ -153,11 +155,11 @@ export default function Reservar({ id }) {
 											Precio por Noche:
 											<div className="flex flex-row text-end">
 												<span className="flex text-end text-primary ">$</span>
-												{Precio}
+												{myCard?.precio}
 											</div>
 										</li>
 										<li className="flex flex-row text-end justify-between">
-											${Precio} USD X {total.noches} noches:
+											${myCard?.precio} USD X {total.noches} noches:
 											<div className="flex flex-row text-end">
 												<span className="flex text-end text-primary ml-[8rem]">
 													{" "}
