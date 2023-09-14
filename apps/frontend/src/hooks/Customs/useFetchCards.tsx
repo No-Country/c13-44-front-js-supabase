@@ -1,52 +1,59 @@
 import { useEffect, useState } from "react";
 import { supabaseClient } from "../../supabase";
 
-interface TypeState {
-	benefits: string;
+export interface TypeState {
+  id: string | undefined;
+  titulo: string | undefined;
+	precio: number | undefined;
+	localizacion: string | undefined;
+	image: string | undefined;
+	imagen: string | undefined;
+  benefits: string[];
 }
 
-interface TypesBenefits {
-	id: string;
-	benefits: string[];
+export interface TypesBenefits {
+  id: string;
+  benefits: string[];
 }
 
 export const useFetchCards = (name: string, condition: boolean) => {
-	const [myCards, setMyCards] = useState<string[] | TypeState>([]);
+  const [myCards, setMyCards] = useState<TypeState[]>([]);
 
-	useEffect(() => {
-		async function fetchCard(
-			benefitsPromise: Promise<{ data: TypesBenefits[] }>,
-		) {
-			const { data: publicacion } = await supabaseClient
-				.from("publicacion")
-				.select("*")
-				.eq(name, condition);
+  useEffect(() => {
+    async function fetchCard(
+      benefitsPromise: Promise<{ data: TypesBenefits[] }>
+    ) {
+      const { data: publicacion } = await supabaseClient
+        .from("publicacion")
+        .select("*")
+        .eq(name, condition);
 
-			if (publicacion) {
-				const { data: benefits } = await benefitsPromise;
+      if (publicacion) {
+        const { data: benefits } = await benefitsPromise;
 
-				const data = publicacion.map(({ prestaciones, ...item }) => {
-					return {
-						id: item.id,
-						publicacion: prestaciones?.map((prestacion: string) => {
-							return benefits.find(
-								(benefitsub) => benefitsub.id === prestacion,
-							)?.benefits as string[];
-						}),
-					};
-				});
+        const data = publicacion.map(({ prestaciones, ...item }) => {
+          return {
+            id: item.id,
+            publicacion:
+              prestaciones?.map((prestacion: string) => {
+                return benefits.find(
+                  (benefitsub) => benefitsub.id === prestacion
+                )?.benefits;
+              }),
+          };
+        });
 
-				setMyCards(data as any[]);
-			}
-		}
-		async function fetchPrestaciones() {
-			const data = supabaseClient.from("benefits").select("*");
+        setMyCards(data as any[]);
+      }
+    }
+    async function fetchPrestaciones() {
+      const data = supabaseClient.from("benefits").select("*");
 
-			fetchCard(data as unknown);
-		}
+      fetchCard(data as any);
+    }
 
-		fetchPrestaciones();
-	}, []);
+    fetchPrestaciones();
+  }, []);
 
-	return myCards;
+  return myCards;
 };
