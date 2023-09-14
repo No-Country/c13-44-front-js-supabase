@@ -8,15 +8,7 @@ import {
 	Tab,
 	Tabs,
 } from "@nextui-org/react";
-import {
-	IconCooker,
-	IconDeviceTv,
-	IconHeart,
-	IconParking,
-	IconShare,
-	IconStar,
-	IconWifi,
-} from "@tabler/icons-react";
+import { IconHeart, IconShare, IconStar } from "@tabler/icons-react";
 import { useCallback, useEffect, useId, useState } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import {
@@ -27,11 +19,10 @@ import {
 	object,
 	string,
 } from "valibot";
-import Huespedes from "../../../components/huespedes.dropdown";
+import Huespedes from "../../../components/huespedes.counter";
 import { AuthContext } from "../../../context/Auth";
 import { useFetchId } from "../../../hooks/Customs/useFetchId";
-import { supabaseClient } from "../../../supabase";
-import { imageURL } from "../../../supabase";
+import { imageURL, supabaseClient } from "../../../supabase";
 import { Error404 } from "./404";
 
 const ReservaSchema = object({
@@ -55,11 +46,13 @@ const defaulValuesDate = (() => {
 	const getDay = () => date.getDate();
 	return {
 		fecha_inicio: `${getFullYear()}-0${getMonth()}-${getDay()}`,
-		fecha_final: `${getFullYear()}-0${getMonth()}-${getDay() + 1}`,
+		fecha_final: `${getFullYear()}-0${getMonth()}-${getDay() + 2}`,
 	};
 })();
 
 export default function Reservar({ id }) {
+	const { counter } = useHuespedesStore();
+
 	const [total, setTotal] = useState({
 		noches: null,
 		total: null,
@@ -114,6 +107,10 @@ export default function Reservar({ id }) {
 
 		console.log("send", error);
 	};
+
+	useEffect(() => {
+		console.log(errors);
+	});
 
 	if (isLogged()) {
 		return <Error404 />;

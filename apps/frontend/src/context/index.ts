@@ -1,4 +1,2 @@
-
-export * from './places/PlacesContext';
-export * from './places/PlacesProvider';
-
+export * from "./PlacesContext";
+export * from "./places/PlacesProvider";
