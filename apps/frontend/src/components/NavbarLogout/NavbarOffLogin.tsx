@@ -117,13 +117,6 @@ export default function NavbarOffLogin() {
 								Crear publicación
 							</DropdownItem>
 							<DropdownItem
-								description="Estas son tus publicaciónes"
-								startContent={<IconChecklist />}
-								onClick={() => setLocation("/posting")}
-							>
-								Mis publicaciones
-							</DropdownItem>
-							<DropdownItem
 								showDivider
 								description="Estas son tus reservas"
 								startContent={<IconHomeEdit />}

@@ -8,58 +8,58 @@ import Posting from "../login/Publications/Post";
 import { MisPublicaciones } from "./perfil/mispublicaciones";
 
 const DataUser = [
-	{
-		name: "Marco Antonio",
-		apellidos: "Vega Ortiz",
-		ubicacion: "Chile, La Serena.",
-		codigopostal: "1700000",
-	},
+  {
+    name: "Marco Antonio",
+    apellidos: "Vega Ortiz",
+    ubicacion: "Chile, La Serena.",
+    codigopostal: "1700000",
+  },
 ];
 
 const ActualizarPerfil = [
-	{
-		name: "Nombres",
-		type: "text",
-		placeholder: "Ej: Marco antonio",
-	},
-	{
-		name: "Apellidos",
-		type: "text",
-		placeholder: "Ej: Vega Ortiz",
-	},
-	{
-		name: "Nombre de usuario",
-		type: "text",
-		placeholder: "Ej: Teblelin",
-	},
-	{
-		name: "Mail",
-		type: "email",
-		placeholder: "Ej: marco.antoni@gmail.com",
-	},
-	{
-		name: "Contrasena",
-		type: "password",
-		placeholder: "Usa min 1 mayuscula y 4 digitos ",
-	},
-	{
-		name: "Ubicacion",
-		type: "text",
-		placeholder: "Ej: Pais, Ciudad, Calle, #1234 ",
-	},
-	{
-		name: "Codigo Postal",
-		type: "number",
-		placeholder: "Ej: 33101",
-	},
+  {
+    name: "Nombres",
+    type: "text",
+    placeholder: "Ej: Marco antonio",
+  },
+  {
+    name: "Apellidos",
+    type: "text",
+    placeholder: "Ej: Vega Ortiz",
+  },
+  {
+    name: "Nombre de usuario",
+    type: "text",
+    placeholder: "Ej: Teblelin",
+  },
+  {
+    name: "Mail",
+    type: "email",
+    placeholder: "Ej: marco.antoni@gmail.com",
+  },
+  {
+    name: "Contrasena",
+    type: "password",
+    placeholder: "Usa min 1 mayuscula y 4 digitos ",
+  },
+  {
+    name: "Ubicacion",
+    type: "text",
+    placeholder: "Ej: Pais, Ciudad, Calle, #1234 ",
+  },
+  {
+    name: "Codigo Postal",
+    type: "number",
+    placeholder: "Ej: 33101",
+  },
 ];
 
 export default function UsuarioPerfil() {
   const { user } = AuthContext();
   const [, setLocation] = useLocation();
 
-	const rows = 1;
-	const cols = 1;
+  const rows = 1;
+  const cols = 1;
 
   return (
     <>
@@ -103,21 +103,10 @@ export default function UsuarioPerfil() {
                     </div>
                   );
                 })}
-                <div className="flex justify-between">
-                  <h1 className="font-bold text-2xl mt-[2rem]">Mis Avisos</h1>
-                  <Button
-                    color="primary"
-                    variant="bordered"
-                    className="m-4 w-[15rem]"
-                    onClick={() => setLocation("/postvivienda")}
-                  >
-                    Crear Aviso
-                  </Button>
-                </div>
-                <Divider />
-                <span>
-                  <Posting />
-                </span>
+               
+               
+                  <MisPublicaciones />
+  
               </Tab>
               <Tab title="Editar perfil">
                 <div className="grid grid-cols-3 gap-4 mt-4">

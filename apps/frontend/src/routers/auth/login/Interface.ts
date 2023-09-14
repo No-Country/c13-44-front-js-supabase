@@ -1,8 +1,5 @@
-
-
-
 export interface CardInfo {
-  img: (event: React.MouseEvent<HTMLInputElement>) => void,
+  img: (event: React.MouseEvent<HTMLInputElement>) => void;
   titulo: string;
   precio: number;
   ubicacion: string;
@@ -18,4 +15,9 @@ export interface CardInfo {
 export interface PostCardProps {
   post: CardInfo;
 }
+
+export type StateValues = {
+  slidePrev: () => void;
+  slideNext: () => void;
+};
 
