@@ -14,13 +14,17 @@ export const useFetchCards = (name: string, condition: boolean) => {
 	const [myCards, setMyCards] = useState<string[] | TypeState>([]);
 
 	useEffect(() => {
-		async function fetchCard(benefits: TypesBenefits[]) {
+		async function fetchCard(
+			benefitsPromise: Promise<{ data: TypesBenefits[] }>,
+		) {
 			const { data: publicacion } = await supabaseClient
 				.from("publicacion")
 				.select("*")
 				.eq(name, condition);
 
 			if (publicacion) {
+				const { data: benefits } = await benefitsPromise;
+
 				const data = publicacion.map(({ prestaciones, ...item }) => {
 					return {
 						id: item.id,
@@ -36,9 +40,9 @@ export const useFetchCards = (name: string, condition: boolean) => {
 			}
 		}
 		async function fetchPrestaciones() {
-			const { data } = await supabaseClient.from("benefits").select("*");
+			const data = supabaseClient.from("benefits").select("*");
 
-			fetchCard(data as any);
+			fetchCard(data as unknown);
 		}
 
 		fetchPrestaciones();
