@@ -17,7 +17,7 @@ import {
 	IconStar,
 	IconWifi,
 } from "@tabler/icons-react";
-import { useEffect, useId, useState } from "react";
+import { useCallback, useEffect, useId, useState } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import {
 	Input as Inputvali,
@@ -48,6 +48,17 @@ const defaultValues = {
 
 const tarifa = 0.1;
 
+const defaulValuesDate = (() => {
+	const date = new Date();
+	const getFullYear = () => date.getFullYear();
+	const getMonth = () => date.getMonth();
+	const getDay = () => date.getDate();
+	return {
+		fecha_inicio: `${getFullYear()}-0${getMonth()}-${getDay()}`,
+		fecha_final: `${getFullYear()}-0${getMonth()}-${getDay() + 1}`,
+	};
+})();
+
 export default function Reservar({ id }) {
 	const [total, setTotal] = useState({
 		noches: null,
@@ -70,7 +81,7 @@ export default function Reservar({ id }) {
 		},
 	});
 
-	useEffect(() => {
+	const Total = useCallback(() => {
 		const fechaIngreso = getValues("fecha_inicio");
 		const fechaSalida = getValues("fecha_final");
 		const tiempoDeEstadia = fechaSalida - fechaIngreso;
@@ -79,7 +90,11 @@ export default function Reservar({ id }) {
 		const tarifaReal = precioTotalNoches * tarifa;
 		const total = precioTotalNoches + tarifaReal;
 		setTotal({ total, noches, tarifaReal, precioTotalNoches });
-	}, [getValues("fecha_inicio"), getValues("fecha_final")]);
+	}, [getValues, myCard.precio]);
+
+	useEffect(() => {
+		Total();
+	}, [Total, myCard]);
 
 	console.log(total);
 	const publicacion_id = id;
@@ -143,14 +158,22 @@ export default function Reservar({ id }) {
 									type="date"
 									label="Ingreso"
 									placeholder="Ingreso"
-									{...register("fecha_inicio", { valueAsDate: true })}
+									{...register("fecha_inicio", {
+										valueAsDate: true,
+										onChange: Total,
+									})}
+									defaultValue={defaulValuesDate.fecha_inicio}
 								/>
 								<Input
 									className="w-[20rem] m-[1rem]"
 									type="date"
 									label="Salida"
 									placeholder="Salida"
-									{...register("fecha_final", { valueAsDate: true })}
+									{...register("fecha_final", {
+										valueAsDate: true,
+										onChange: Total,
+									})}
+									defaultValue={defaulValuesDate.fecha_final}
 								/>
 							</div>
 							<div className="flex flex-row ml-[4rem] mt-[1rem]">
@@ -161,24 +184,25 @@ export default function Reservar({ id }) {
 											Precio por Noche:
 											<div className="flex flex-row text-end">
 												<span className="flex text-end text-primary ">$</span>
-												{myCard?.precio}
+												{myCard?.precio ?? 0}
 											</div>
 										</li>
 										<li className="flex flex-row text-end justify-between">
-											${myCard?.precio} USD X {total.noches} noches:
+											${myCard?.precio ? myCard?.precio : 0} USD X{" "}
+											{total.noches} noches:
 											<div className="flex flex-row text-end">
 												<span className="flex text-end text-primary ml-[8rem]">
 													{" "}
 													$
 												</span>
-												{total.precioTotalNoches}
+												{total.precioTotalNoches ? total.precioTotalNoches : 0}
 											</div>
 										</li>
 										<li className="flex flex-row text-end justify-between">
 											Tarifa por servivio:
 											<div className="flex flex-row text-end">
 												<span className="flex text-end text-primary ">$</span>
-												{total.tarifaReal}
+												{total.tarifaReal ? total.tarifaReal : 0}
 											</div>
 										</li>
 									</ul>
