@@ -51,8 +51,6 @@ const defaulValuesDate = (() => {
 })();
 
 export default function Reservar({ id }) {
-	const { counter } = useHuespedesStore();
-
 	const [total, setTotal] = useState({
 		noches: null,
 		total: null,
@@ -196,7 +194,7 @@ export default function Reservar({ id }) {
 											</div>
 										</li>
 										<li className="flex flex-row text-end justify-between">
-											Tarifa por servivio:
+											Tarifa por servicio del 10%:
 											<div className="flex flex-row text-end">
 												<span className="flex text-end text-primary ">$</span>
 												{total.tarifaReal ? total.tarifaReal : 0}
