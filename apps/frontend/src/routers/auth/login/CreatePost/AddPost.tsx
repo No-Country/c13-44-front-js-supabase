@@ -14,7 +14,7 @@ export const AddPost = () => {
           .from("publicacion")
           .select("*");
         if (publicacion) {
-          setPost(publicacion);
+          setPost(publicacion as any);
         }
         console.log(publicacion);
       } catch (error) {
