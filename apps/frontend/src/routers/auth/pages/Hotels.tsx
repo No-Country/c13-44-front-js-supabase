@@ -15,24 +15,22 @@ const Destination: FC<PropsDestination> = () => {
 			<div className="flex justify-center">
 				<Filters />
 			</div>
-			<div className="flex items-center">
-				<span>
-					<div className="flex flex-wrap">
-						{myCards.map((posting, index) => (
-							<div className="m-3">
-								<CardPropiedades
-									onClick={() => setLocation(`/reservacion/${posting.id}`)}
-									id={posting.id}
-									titulo={posting.titulo}
-									precio={posting.precio}
-									localizacion={posting.localizacion}
-									imagen={posting.imagen}
-								/>
-							</div>
-						))}
-					</div>
-				</span>
-			</div>
+
+			<span className="m-10">
+				<div className="grid grid-cols-[repeat(auto-fit,minmax(190px,1fr))] gap-8">
+					{myCards.map((posting, index) => (
+						<CardPropiedades
+							autoWith
+							onClick={() => setLocation(`/reservacion/${posting.id}`)}
+							id={posting.id}
+							titulo={posting.titulo}
+							precio={posting.precio}
+							localizacion={posting.localizacion}
+							imagen={posting.imagen}
+						/>
+					))}
+				</div>
+			</span>
 		</>
 	);
 };
