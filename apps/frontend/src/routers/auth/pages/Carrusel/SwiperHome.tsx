@@ -30,39 +30,9 @@ export const SwiperHome = () => {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         breakpoints={{
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          360: {
-            slidesPerView: 1.15,
-            spaceBetween: 20,
-          },
-          480: {
-            slidesPerView: 1.4,
-            spaceBetween: 30,
-          },
-          576: {
-            slidesPerView: 1.6,
-            spaceBetween: 40,
-          },
-
           768: {
-            slidesPerView: 2.25,
-            spaceBetween: 40,
-          },
-
-          992: {
-            slidesPerView: 3,
-            spaceBetween: 40,
-          },
-          1200: {
-            slidesPerView: 3.75,
-            spaceBetween: 40,
-          },
-          1400: {
-            slidesPerView: 4,
-            spaceBetween: 40,
+            slidesPerView: 2.8,
+            spaceBetween: 35,
           },
         }}
       >
