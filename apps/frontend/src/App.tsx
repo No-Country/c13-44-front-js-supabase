@@ -1,7 +1,7 @@
 import mapboxgl from "mapbox-gl"; // or "const mapboxgl = require('mapbox-gl');"
 import NavbarOffLogin from "./components/NavbarLogout/NavbarOffLogin";
 import Footer from "./components/footer";
-import { MisReservas } from "./components/misreservas";
+import { MisReservas } from "./routers/auth/pages/misreservas";
 import Contact from "./routers/auth/pages/Contact";
 import Destination from "./routers/auth/pages/Destination";
 import Hotels from "./routers/auth/pages/Hotels";

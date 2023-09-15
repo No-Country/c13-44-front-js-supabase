@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { useFetchCards } from "../../../../hooks/Customs/useFetchCards";
+import { useFetchCards } from "../../hooks/Customs/useFetchCards";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Scrollbar } from "swiper/modules";
 import { Button } from "@nextui-org/react";
 import { IconArrowBigLeft, IconArrowBigRight } from "@tabler/icons-react";
-import CardPropiedades from "../../../../components/card";
+import CardPropiedades from "../card";
 import { useLocation } from "wouter";
-import { StateValues } from "../../login/Interface";
+import { StateValues } from "../../routers/auth/login/Interface";
 
 export const SwiperHome = () => {
   const [_, setLocation] = useLocation();
@@ -71,7 +71,7 @@ export const SwiperHome = () => {
       </div>
       <div className="flex flex-col  items-center gap-10">
         <h1 className=" font-bold text-4xl">
-          Los mejores <span className="text-primary">planes de vacaciones</span>
+          Los planes <span className="text-primary">mejor valorados</span>
         </h1>
         <p className="max-w-xs text-center text-primary">
           Planifica tus vacaciones perfectas con nuestra agencia de viajes
