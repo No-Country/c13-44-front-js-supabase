@@ -10,7 +10,7 @@ useEffect (( ) => {
 	const { data: mis_reservaciones, error } = await supabaseClient
 	.from('mis_reservaciones')
 	.select('*')
-	.eq("user", user?.user.id);
+	.eq("user_id", user?.user.id);
 })
 
 
