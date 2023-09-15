@@ -93,7 +93,6 @@ export default function Reservar({ id }) {
 	}, [Total, myCard]);
 
 	console.log(total);
-	const huespedes = counter;
 	const publicacion_id = id;
 	const user_id = user?.user.id;
 	const fecha_compra = new Date();
@@ -111,7 +110,7 @@ export default function Reservar({ id }) {
 					publicacion_id,
 					fecha_compra,
 					valor_compra,
-					huespedes,
+					huespedes: counter,
 				},
 			]);
 

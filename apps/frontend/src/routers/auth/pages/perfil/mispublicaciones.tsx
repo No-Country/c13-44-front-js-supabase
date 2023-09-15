@@ -1,14 +1,28 @@
 import { Button, Divider } from "@nextui-org/react";
-import React, { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import CardPropiedades from "../../../../components/card";
 import { AuthContext } from "../../../../context/Auth";
 import { supabaseClient } from "../../../../supabase";
 
 export function MisPublicaciones() {
-	const [MyCards, setMycards] = useState([]);
+	const [myCards, setMycards] = useState([]);
 	const [, setLocation] = useLocation();
 	const { user } = AuthContext();
+
+	const handlePutActive = async (id, active, index) => {
+		const { data, error } = await supabaseClient
+			.from("publicacion")
+			.update({ active })
+			.eq("id", id);
+		setMycards((oldState) => {
+			const newState = [...oldState];
+			newState[index] = { ...oldState[index], active };
+
+			return newState;
+		});
+		console.log(error);
+	};
 
 	useEffect(() => {
 		async function fetchCard(prestacionessub: {
@@ -63,14 +77,20 @@ export function MisPublicaciones() {
 			</div>
 			<Divider />
 			<span>
-				{MyCards.map((card) => (
-					<CardPropiedades
-						key={card.id}
-						titulo={card.titulo}
-						precio={card.precio}
-						localizacion={card.ubicacion}
-						imagen={card.image}
-					/>
+				{myCards.map((card, index) => (
+					<Fragment key={card.id}>
+						<Button
+							onClick={() => handlePutActive(card.id, !card.active, index)}
+						>
+							{card.active ? "Eliminar" : "Activar"}
+						</Button>
+						<CardPropiedades
+							titulo={card.titulo}
+							precio={card.precio}
+							localizacion={card.ubicacion}
+							imagen={card.image}
+						/>
+					</Fragment>
 				))}
 			</span>
 		</>
