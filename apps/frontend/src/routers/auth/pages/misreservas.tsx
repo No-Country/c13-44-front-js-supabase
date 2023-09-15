@@ -13,7 +13,7 @@ export function MisReservas() {
         <span className="grid grid-cols-[repeat(auto-fit,minmax(190px,1fr))] gap-10">
           {reservations.map((reservation, index) => (
             <CardPropiedades
-              key={`index-${index}`}
+              key={reservation.publicacion.id}
               id={reservation.publicacion.id}
               titulo={reservation.publicacion.titulo}
               precio={reservation.valor_compra}
