@@ -11,11 +11,16 @@ import {
 import { IconHeart, IconShare, IconStar } from "@tabler/icons-react";
 import { useCallback, useEffect, useId, useState } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
+import { useHuespedesStore } from "../../../context/getCounter";
+
 import {
 	Input as Inputvali,
 	date,
 	maxLength,
+	maxValue,
 	minLength,
+	minValue,
+	number,
 	object,
 	string,
 } from "valibot";
@@ -28,13 +33,11 @@ import { Error404 } from "./404";
 const ReservaSchema = object({
 	fecha_inicio: date(undefined, []),
 	fecha_final: date(undefined, []),
-	huespedes: string(undefined, [minLength(1), maxLength(10)]),
 });
 
 const defaultValues = {
 	fecha_inicio: undefined,
 	fecha_final: undefined,
-	huespedes: 0,
 };
 
 const tarifa = 0.1;
@@ -51,6 +54,8 @@ const defaulValuesDate = (() => {
 })();
 
 export default function Reservar({ id }) {
+	const { counter } = useHuespedesStore();
+
 	const [total, setTotal] = useState({
 		noches: null,
 		total: null,
@@ -88,17 +93,26 @@ export default function Reservar({ id }) {
 	}, [Total, myCard]);
 
 	console.log(total);
+	const huespedes = counter;
 	const publicacion_id = id;
 	const user_id = user?.user.id;
 	const fecha_compra = new Date();
 	const valor_compra = total.total;
+
 	const onSubmit: SubmitHandler<Inputvali<typeof ReservaSchema>> = async (
 		form,
 	) => {
 		const { data, error } = await supabaseClient
 			.from("mis_reservaciones")
 			.insert([
-				{ ...form, user_id, publicacion_id, fecha_compra, valor_compra },
+				{
+					...form,
+					user_id,
+					publicacion_id,
+					fecha_compra,
+					valor_compra,
+					huespedes,
+				},
 			]);
 
 		console.log(data);
