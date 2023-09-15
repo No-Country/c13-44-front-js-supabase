@@ -104,7 +104,7 @@ export default function UsuarioPerfil() {
                   );
                 })}
                
-               
+    
                   <MisPublicaciones />
   
               </Tab>
