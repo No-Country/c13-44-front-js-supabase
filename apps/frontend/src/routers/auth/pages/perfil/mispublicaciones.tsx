@@ -1,5 +1,5 @@
 import { Button, Divider } from "@nextui-org/react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import CardPropiedades from "../../../../components/card";
 import { AuthContext } from "../../../../context/Auth";

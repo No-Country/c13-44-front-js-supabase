@@ -54,7 +54,8 @@ export default function CardPropiedades({
 							{props.titulo ?? "Casa, Colombia, Medellin"}
 						</p>
 						<p className="text-black text-tiny gap-2 flex items-center">
-							<IconCurrentLocation /> {props.localizacion ?? "Medellin"}
+							<IconCurrentLocation /> 
+							{props.localizacion ?? "Medellin"}
 						</p>
 					</div>
 					<div className=" flex flex-col items-center">
