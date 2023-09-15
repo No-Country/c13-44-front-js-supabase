@@ -1,4 +1,10 @@
-import { Button, Divider } from "@nextui-org/react";
+import {
+  Button,
+  Divider,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@nextui-org/react";
 import { Fragment, useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import CardPropiedades from "../../../../components/card";
@@ -75,24 +81,44 @@ export function MisPublicaciones() {
           Crear Aviso
         </Button>
       </div>
-      <Divider />
-      <span>
-        {myCards.map((card, index) => (
-          <Fragment key={card.id}>
-            <Button
-              onClick={() => handlePutActive(card.id, !card.active, index)}
-            >
-              {card.active ? "Eliminar" : "Activar"}
-            </Button>
-            <CardPropiedades
-              titulo={card.titulo}
-              precio={card.precio}
-              localizacion={card.ubicacion}
-              imagen={card.image}
-            />
-          </Fragment>
-        ))}
-      </span>
+      <div>
+        <Divider className="mb-[2rem]" />
+      </div>
+      <div className="mt-[]2 rem">
+        <span className="flex flex-row ">
+          {myCards.map((card, index) => (
+            <Fragment key={card.id}>
+              <Popover placement="right">
+                <PopoverTrigger>
+                  <Button
+                    onClick={() =>
+                      handlePutActive(card.id, !card.active, index)
+                    }
+                  >
+                    {card.active ? "Ocultar" : "Activar"}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent>
+                  <div className="px-1 py-2">
+                    <div className="text-small font-bold">
+                      Al cambiar a ocultar{" "}
+                    </div>
+                    <div className="text-tiny">
+                      solo desaparecera para los demas sin mas no se eliminara.
+                    </div>
+                  </div>
+                </PopoverContent>
+              </Popover>
+              <CardPropiedades
+                titulo={card.titulo}
+                precio={card.precio}
+                localizacion={card.ubicacion}
+                imagen={card.image}
+              />
+            </Fragment>
+          ))}
+        </span>
+      </div>
     </>
   );
 }

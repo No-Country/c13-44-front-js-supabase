@@ -1,6 +1,6 @@
 import { Divider } from "@nextui-org/react";
-import { useFetchReservation } from "../../../hooks/Customs/useFetchReservation";
 import CardPropiedades from "../../../components/card";
+import { useFetchReservation } from "../../../hooks/Customs/useFetchReservation";
 
 export function MisReservas() {
   const reservations = useFetchReservation();
@@ -9,7 +9,7 @@ export function MisReservas() {
     <>
       <div>
         <h1 className="font-bold text-2xl mt-[2rem]">Mis Reservaciones</h1>
-        <Divider />
+        <Divider className="mb-[2rem]" />
         <span className="grid grid-cols-[repeat(auto-fit,minmax(190px,1fr))] gap-10">
           {reservations.map((reservation, index) => (
             <CardPropiedades

@@ -103,10 +103,7 @@ export default function UsuarioPerfil() {
                     </div>
                   );
                 })}
-               
-    
-                  <MisPublicaciones />
-  
+                <MisPublicaciones />
               </Tab>
               <Tab title="Editar perfil">
                 <div className="grid grid-cols-3 gap-4 mt-4">
