@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { useFetchCards } from "../../hooks/Customs/useFetchCards";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Scrollbar } from "swiper/modules";
 import { Button } from "@nextui-org/react";
 import { IconArrowBigLeft, IconArrowBigRight } from "@tabler/icons-react";
-import CardPropiedades from "../card";
+import { useState } from "react";
+import { Autoplay, Pagination, Scrollbar } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { useLocation } from "wouter";
+import { useFetchCards } from "../../hooks/Customs/useFetchCards";
 import { StateValues } from "../../routers/auth/login/Interface";
+import Cards from "../card";
 
 export const SwiperHome = () => {
   const [_, setLocation] = useLocation();
@@ -14,6 +14,7 @@ export const SwiperHome = () => {
   const [swiper2Value, setSwiper2Value] = useState<StateValues>();
   const myCards = useFetchCards("main", true);
   const myCardsHome = useFetchCards("oferta", true);
+  console.log(myCards);
 
   return (
     <>
@@ -38,13 +39,13 @@ export const SwiperHome = () => {
       >
         {myCardsHome.map((posting, indexFirst) => (
           <SwiperSlide key={`indexFirst-${indexFirst}`}>
-            <CardPropiedades
+            <Cards
               onClick={() => setLocation(`/reservacion/${posting.id}`)}
               id={posting.id}
               titulo={posting.titulo}
               precio={posting.precio}
-              localizacion={posting.localizacion}
-              imagen={posting.imagen}
+              localizacion={posting.ubicacion}
+              imagen={posting.image}
             />
           </SwiperSlide>
         ))}
@@ -105,13 +106,13 @@ export const SwiperHome = () => {
           >
             {myCards.map((posting, indexSecond) => (
               <SwiperSlide key={`indexSecond-${indexSecond}`}>
-                <CardPropiedades
+                <Cards
                   onClick={() => setLocation(`/reservacion/${posting.id}`)}
                   id={posting.id}
                   titulo={posting.titulo}
                   precio={posting.precio}
-                  localizacion={posting.localizacion}
-                  imagen={posting.imagen}
+                  localizacion={posting.ubicacion}
+                  imagen={posting.image}
                 />
               </SwiperSlide>
             ))}

@@ -4,10 +4,10 @@ import { supabaseClient } from "../../supabase";
 export interface TypeState {
   id: string | undefined;
   titulo: string | undefined;
-	precio: number | undefined;
-	localizacion: string | undefined;
-	image: string | undefined;
-	imagen: string | undefined;
+  precio: number | undefined;
+  localizacion: string | undefined;
+  image: string | undefined;
+  imagen: string | undefined;
   benefits: string[];
 }
 
@@ -33,13 +33,12 @@ export const useFetchCards = (name: string, condition: boolean) => {
 
         const data = publicacion.map(({ prestaciones, ...item }) => {
           return {
+            ...item,
             id: item.id,
-            publicacion:
-              prestaciones?.map((prestacion: string) => {
-                return benefits.find(
-                  (benefitsub) => benefitsub.id === prestacion
-                )?.benefits;
-              }),
+            publicacion: prestaciones?.map((prestacion: string) => {
+              return benefits.find((benefitsub) => benefitsub.id === prestacion)
+                ?.benefits;
+            }),
           };
         });
 
