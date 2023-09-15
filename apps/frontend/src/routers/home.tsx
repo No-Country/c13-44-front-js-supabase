@@ -1,21 +1,21 @@
 import { Avatar } from "@nextui-org/react";
-import { Filters } from "../components/filters";
-import logo from "../img/icono00.png";
 import "swiper/css";
 import { SwiperHome } from "../components/Carrusel/SwiperHome";
+import { Filters } from "../components/filters";
+import logo from "../img/icono00.png";
 
 export function Home() {
   return (
     <span className="grid gap-24 ">
-      <section className="mt-10 flex flex-col items-center ">
+      <section className="mt-10 flex flex-col items-center justify-center ">
         <div className="flex flex-row items-center justify-center ">
           <div className="flex flex-col h-full">
-            <h1 className="mb-8 mt-16 max-w-xl text-6xl font-semibold animate-fade-right animate-once dark:text-white">
+            <h1 className="ml-[7rem] mb-8 mt-16 max-w-xl text-6xl font-semibold animate-fade-right animate-once dark:text-white">
               <span className="text-primary">Descubre</span> un nuevo mundo 🌎
               <br /> A tu manera.
             </h1>
             <section className="max-w-xl mb-10">
-              <p className="animate-fade-right animate-once dark:text-white text-lg">
+              <p className="ml-[7rem] animate-fade-right animate-once dark:text-white text-lg">
                 Start up de arriendo de distintos inmoviliarios en los que se
                 encuentran: <br />
                 casas, cabaña, departamentos, hoteles, etc. los cuales cuentan
