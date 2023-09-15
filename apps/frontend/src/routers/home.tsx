@@ -2,7 +2,7 @@ import { Avatar } from "@nextui-org/react";
 import { Filters } from "../components/filters";
 import logo from "../img/icono00.png";
 import "swiper/css";
-import { SwiperHome } from "./auth/pages/Carrusel/SwiperHome";
+import { SwiperHome } from "../components/Carrusel/SwiperHome";
 
 export function Home() {
   return (
