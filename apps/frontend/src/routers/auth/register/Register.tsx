@@ -7,9 +7,11 @@ import {
 } from "@tabler/icons-react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { valibotResolver } from "@hookform/resolvers/valibot";
-import { email, maxLength, minLength, object, string } from "valibot";
+import { email, maxLength, minLength, object, string, Input as Inputvali } from "valibot";
 import logo from "../../../img/icono00.png";
 import React from "react";
+import { supabaseClient } from "../../../supabase";
+
 
 const PropsRegisterSchema = object({
   username: string("Tu usuario debe contener solo letras y numeros", [
@@ -37,19 +39,57 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-
-    formState: { errors, isValid, isSubmitted },
+    formState: { errors, isSubmitted },
   } = useForm({
     resolver: valibotResolver(PropsRegisterSchema),
   });
 
-  const onSubmit: SubmitHandler<typeof PropsRegisterSchema> = (data) => {
-    console.log(data);
+
+
+  const [formData, setFormData] = React.useState({ //Identificador para actualizar los datos del objeto
+    username: '',
+    email: '',
+    password: '',
+    confirmpassword: '',
+  })
+  console.log(formData)
+  
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { //Especifica que data es un evento cambiante
+    setFormData((prevFormData) => { //Saber la entrada antes de que se cambiara
+      return {
+        ...prevFormData, //Tendremos nuestro form anterior
+        [event.target.name]: event.target.value//Cada vez que se haga un cambio debemos operar en un elemento en particular del objeto, en si reemplazamos todas las entradas
+      }
+    })
+  }
+
+  const onSubmit: SubmitHandler<Inputvali<typeof PropsRegisterSchema>> = async () => {
+    try {
+      const { data } = await supabaseClient.auth.signUp(
+        {
+          email: formData.email, //Obteniendo objetos del state
+          password: formData.password,
+          options: {
+            data: {
+              user_name: formData.username,
+            }
+          }
+        }
+      )
+      alert('Porfavor revisa tu correo electronico para validar tu cuenta')
+    } catch (error) {
+      alert(error)
+    }
   };
+
+
+
 
   const [isVisible, setIsVisible] = React.useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
+
+
   return (
     <div className="flex flex-row justify-center my-24">
       <form onSubmit={handleSubmit(onSubmit as any)}>
@@ -66,6 +106,7 @@ const Register = () => {
               placeholder="Ingresa tu usuario"
               onClear={() => console.log("input cleared")}
               {...register("username")}
+              onChange={handleChange}
             />
             <Input
               errorMessage={errors.email?.message as string}
@@ -77,6 +118,7 @@ const Register = () => {
               placeholder="Ingresa tu correo"
               onClear={() => console.log("input cleared")}
               {...register("email")}
+              onChange={handleChange}
             />
             <Input
               errorMessage={errors.password?.message as string}
@@ -100,6 +142,7 @@ const Register = () => {
               }
               type={isVisible ? "text" : "password"}
               {...register("password")}
+              onChange={handleChange}
             />
             <Input
               errorMessage={errors.confirmpassword?.message as string}
@@ -123,6 +166,7 @@ const Register = () => {
               }
               type={isVisible ? "text" : "password"}
               {...register("confirmpassword")}
+              onChange={handleChange}
             />
           </section>
         </div>
@@ -135,7 +179,7 @@ const Register = () => {
               Registrarse
             </Button>
             <Link href="/login" underline="always" color="danger">
-              Iniciar Sesion
+              ¿Ya tienes una cuenta?
             </Link>
           </div>
           <div className="flex flex-row justify-center text-[#D41790] pt-5 gap-5 hover:cursor-pointer">

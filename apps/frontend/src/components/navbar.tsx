@@ -22,21 +22,23 @@ export default function NavbarOffLogin() {
   const menuItems = [
     { name: "Destinos", route: "/destination" },
     { name: "Contacto", route: "/contact" },
+    { name: "Perfil", route: "/perfil" },
     { name: "Iniciar Sesión", route: "/login" },
     { name: "Registro", route: "/register" },
+    
   ];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className="  " shouldHideOnScroll>
+    <Navbar onMenuOpenChange={setIsMenuOpen} className="hover:cursor-pointer" shouldHideOnScroll>
       <NavbarContent>
         <NavbarBrand>
           <div className="max-w-[5rem]" onClick={() => setLocation("/")}>
-            <img src={logo} alt="" />
+            <img src={logo}/>
           </div>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="options hidden lg:flex gap-4" justify="center">
+      <NavbarContent className="options hidden lg:flex gap-2" justify="center">
         <NavbarItem>
           <Link color="foreground" onClick={() => setLocation("/destination")}>
             Destinos
@@ -45,6 +47,21 @@ export default function NavbarOffLogin() {
         <NavbarItem>
           <Link color="foreground" onClick={() => setLocation("/contact")}>
             Contacto
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" onClick={() => setLocation("/reservacion")}>
+            Reservar
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" onClick={() => setLocation("/postvivienda")}>
+            Crear publicación
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" onClick={() => setLocation("/posting")}>
+            Publicaciónes
           </Link>
         </NavbarItem>
         <NavbarItem>
@@ -87,7 +104,7 @@ export default function NavbarOffLogin() {
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
-              color={index > 1 ? "primary" : "foreground"}
+              color={index > 2 ? "primary" : "foreground"}
               className="w-full"
               onClick={() => {
                 setLocation(item.route);

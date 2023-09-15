@@ -7,15 +7,24 @@ import {
   IconMailFilled,
 } from "@tabler/icons-react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { object, string, minLength, maxLength } from "valibot";
+import {
+  object,
+  string,
+  minLength,
+  maxLength,
+  Input as Inputvali,
+  email,
+} from "valibot";
 import React from "react";
 import logo from "../../../img/icono00.png";
+import { supabaseClient } from "../../../supabase";
+import { useLocation } from "wouter";
+import { AuthContext } from "../../../context/Auth";
 
 const PropsLogin = object({
-  username: string("Tu usuario debe contener solo letras y numeros", [
-    minLength(1, "Ingresa tu usuario"),
-    minLength(6, "Tu usuario debe tener minimo 6 caracteres"),
-    maxLength(18, "Tu usuario no debe tener mas de 18 caracteres"),
+  email: string("Tu correo debe ser example@example.com", [
+    minLength(1, "Ingresa tu correo"),
+    email("Por favor ingresa un correo valido"),
   ]),
   password: string("Tu contraseña debe contener solo letras y numeros", [
     minLength(1, "Ingresa tu contraseña"),
@@ -24,7 +33,7 @@ const PropsLogin = object({
   ]),
 });
 
-const Login = () => {
+const Login = (): JSX.Element => {
   const {
     register,
     handleSubmit,
@@ -33,9 +42,43 @@ const Login = () => {
     resolver: valibotResolver(PropsLogin),
   });
 
-  const onSubmit: SubmitHandler<typeof PropsLogin> = (data) => {
-    console.log(data);
+  const [formData, setFormData] = React.useState({
+    //Identificador para actualizar los datos del objeto
+    email: "",
+    password: "",
+  });
+  console.log(formData);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //Especifica que data es un evento cambiante
+    setFormData((prevFormData) => {
+      //Saber la entrada antes de que se cambiara
+      return {
+        ...prevFormData, //Tendremos nuestro form anterior
+        [event.target.name]: event.target.value, //Cada vez que se haga un cambio debemos operar en un elemento en particular del objeto, en si reemplazamos todas las entradas
+      };
+    });
   };
+
+  const onSubmit: SubmitHandler<Inputvali<typeof PropsLogin>> = async () => {
+    try {
+      const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (error) throw error;
+      console.log(data);
+      setUser(); //Estado para actualizar el user
+      setLocation("/perfil");
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const { setUser } = AuthContext();
+
+  const [, setLocation] = useLocation();
 
   const [isVisible, setIsVisible] = React.useState(false);
 
@@ -47,16 +90,16 @@ const Login = () => {
         <div className="md:w-96 w-full">
           <section className="space-y-5">
             <Input
-              errorMessage={errors.username?.message as string}
-              validationState={errors.username ? "invalid" : "valid"}
+              errorMessage={errors.email?.message as string}
+              validationState={errors.email ? "invalid" : "valid"}
               color={!isSubmitted ? "default" : "success"}
               isClearable
-              type="text"
-              label="Usuario"
+              label="Email"
               variant="bordered"
               placeholder="Ingresa tu usuario"
               onClear={() => console.log("input cleared")}
-              {...register("username")}
+              {...register("email")}
+              onChange={handleChange}
             />
 
             <Input
@@ -81,6 +124,7 @@ const Login = () => {
               }
               type={isVisible ? "text" : "password"}
               {...register("password")}
+              onChange={handleChange}
             />
           </section>
         </div>
@@ -92,8 +136,8 @@ const Login = () => {
             >
               Iniciar Sesión
             </Button>
-            <Link href="/login" underline="always" color="danger">
-              Iniciar Sesion
+            <Link href="/register" underline="always" color="danger">
+              ¿No tienes una cuenta?
             </Link>
           </div>
           <div className="flex flex-row justify-center text-[#D41790] pt-5 gap-5 hover:cursor-pointer">

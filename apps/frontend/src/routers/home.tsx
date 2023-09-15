@@ -1,23 +1,16 @@
-import logo from "../img/icono00.png";
-import { useLocation } from "wouter";
+import { Avatar } from "@nextui-org/react";
 import { Filters } from "../components/filters";
-import {
-  Avatar,
-  Button,
-  Link
-} from "@nextui-org/react";
-import { IconArrowBigLeft, IconArrowBigRight } from "@tabler/icons-react";
-import CardPropiedades from "../components/card";
+import logo from "../img/icono00.png";
+import "swiper/css";
+import { SwiperHome } from "../components/Carrusel/SwiperHome";
 
 export function Home() {
-  const [, setLocation] = useLocation(); 
-
   return (
     <span className="grid gap-24 ">
       <section className="mt-10 flex flex-col items-center ">
         <div className="flex flex-row items-center justify-center ">
-          <div className="flex flex-col ml-[7.5rem] h-full">
-            <h1 className="mb-6 mt-16 max-w-xl text-6xl font-semibold animate-fade-right animate-once dark:text-white">
+          <div className="flex flex-col h-full">
+            <h1 className="mb-8 mt-16 max-w-xl text-6xl font-semibold animate-fade-right animate-once dark:text-white">
               <span className="text-primary">Descubre</span> un nuevo mundo 🌎
               <br /> A tu manera.
             </h1>
@@ -28,10 +21,6 @@ export function Home() {
                 casas, cabaña, departamentos, hoteles, etc. los cuales cuentan
                 con calificacion hasta 5⭐️
               </p>
-              <Link className="animate-fade-right animate-once cursor-pointer" onClick={() => {setLocation("/register")
-              }}>
-                Registrate hoy y obten un 5% de descuento <br/> en cualquier arriendo.
-              </Link>
             </section>
           </div>
           <div className="flex flex-col">
@@ -53,58 +42,11 @@ export function Home() {
             Descubre nuestros fantásticos descuentos por reserva anticipada y
             empieza a planificar tu viaje
           </p>
-          <div className="flex gap-5 ">
-            {[1, 2, 3, 4].map((value) => (
-              <CardPropiedades key={value} onClick={() => {setLocation("/reservacion")
-             console.log("push");
-             }}/>
-            ))}
-          </div>
-
-          <div className="flex gap-5">
-            <Button variant="ghost" isIconOnly color="danger" aria-label="Like">
-              <IconArrowBigLeft />
-            </Button>
-            <Button
-              variant="shadow"
-              isIconOnly
-              color="danger"
-              aria-label="Like"
-            >
-              <IconArrowBigRight />
-            </Button>
-          </div>
+          <SwiperHome />
         </div>
       </section>
 
-      <section>
-        <div className="flex flex-col  items-center gap-10">
-          <h1 className=" font-bold text-4xl">
-            Los mejores{" "}
-            <span className="text-primary">planes de vacaciones</span>
-          </h1>
-          <p className="max-w-xs text-center text-primary">
-            Planifica tus vacaciones perfectas con nuestra agencia de viajes
-          </p>
-          <div className="flex gap-5 items-center ">
-            <Button variant="ghost" isIconOnly color="danger" aria-label="Like">
-              <IconArrowBigLeft />
-            </Button>
-            {[1, 2, 3, 4].map((value) => (
-              <CardPropiedades key={value} onClick={() => {setLocation("/reservacion")
-              }}/>
-            ))}
-            <Button
-              variant="shadow"
-              isIconOnly
-              color="danger"
-              aria-label="Like"
-            >
-              <IconArrowBigRight />
-            </Button>
-          </div>
-        </div>
-      </section>
+      <section></section>
       <section className="flex flex-col  items-center gap-10">
         <h1 className=" text-center font-bold text-4xl max-w-md ">
           Esto es lo{" "}

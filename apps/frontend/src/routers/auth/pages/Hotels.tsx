@@ -1,36 +1,38 @@
-import { FC } from 'react'
-import CardPropiedades from '../../../components/card';
-import { Filters } from '../../../components/filters';
-import { useLocation } from "wouter";
-
-export interface PropsDestination {
-
-}
+import { Container } from "postcss";
+import { FC } from "react";
+import { useLocation, useRoute } from "wouter";
+import CardPropiedades from "../../../components/card";
+import { Filters } from "../../../components/filters";
+import { useFetchCards } from "../../../hooks/Customs/useFetchCards";
+export type PropsDestination = {};
 
 const Destination: FC<PropsDestination> = () => {
-    const [, setLocation] = useLocation();
+	const [, setLocation] = useLocation();
+	const myCards = useFetchCards("active", true);
 
-    const rows = 4;
-    const cols = 4;
+	return (
+		<>
+			<div className="flex justify-center">
+				<Filters />
+			</div>
 
-    return (
-        <>
-            <div className='flex justify-center m-[1rem]'>
-                <Filters/>
-            </div>
-            <span>
-                <div className="flex gap-8 justify-center ">
-                    {Array.from({ length: rows }).map((_, rowIndex) => (
-                        <div key={rowIndex} className="flex flex-col gap-8">
-                            {Array.from({ length: cols }).map((_, colIndex) => (
-                                <CardPropiedades key={colIndex} onClick={() => setLocation("/reservacion")} />
-                            ))}
-                        </div>
-                    ))}
-                </div>
-            </span>
-        </>
-    )
-}
+			<span className="m-10">
+				<div className="grid grid-cols-[repeat(auto-fit,minmax(190px,1fr))] gap-8">
+					{myCards.map((posting, index) => (
+						<CardPropiedades
+							autoWith
+							onClick={() => setLocation(`/reservacion/${posting.id}`)}
+							id={posting.id}
+							titulo={posting.titulo}
+							precio={posting.precio}
+							localizacion={posting.localizacion}
+							imagen={posting.imagen}
+						/>
+					))}
+				</div>
+			</span>
+		</>
+	);
+};
 
-export default Destination
+export default Destination;
