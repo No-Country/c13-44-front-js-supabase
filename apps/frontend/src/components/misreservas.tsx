@@ -1,6 +1,19 @@
 import { Divider } from "@nextui-org/react";
+import { useEffect } from "react";
+import { AuthContext } from "../context/Auth";
+import { supabaseClient } from "../supabase";
 
 export function MisReservas() {
+	const { user } = AuthContext();
+
+useEffect (( ) => {
+	const { data: mis_reservaciones, error } = await supabaseClient
+	.from('mis_reservaciones')
+	.select('*')
+	.eq("user", user?.user.id);
+})
+
+
 	return (
 		<>
 			<div>
