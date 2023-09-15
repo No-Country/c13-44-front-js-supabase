@@ -45,8 +45,6 @@ export function Home() {
           <SwiperHome />
         </div>
       </section>
-
-      <section></section>
       <section className="flex flex-col  items-center gap-10">
         <h1 className=" text-center font-bold text-4xl max-w-md ">
           Esto es lo{" "}
