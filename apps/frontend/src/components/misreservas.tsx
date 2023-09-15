@@ -6,13 +6,14 @@ import { supabaseClient } from "../supabase";
 export function MisReservas() {
 	const { user } = AuthContext();
 
-useEffect (( ) => {
-	const { data: mis_reservaciones, error } = await supabaseClient
-	.from('mis_reservaciones')
-	.select('*')
-	.eq("user_id", user?.user.id);
-})
-
+	useEffect(() => {
+		async function MisReservas() {
+			const { data: mis_reservaciones, error } = await supabaseClient
+				.from("mis_reservaciones")
+				.select("*")
+				.eq("user_id", user?.user.id);
+		}
+	});
 
 	return (
 		<>
