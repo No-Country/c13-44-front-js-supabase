@@ -10,7 +10,7 @@ export function MisReservas() {
       <div>
         <h1 className="font-bold text-2xl mt-[2rem]">Mis Reservaciones</h1>
         <Divider className="mb-[2rem]" />
-        <span className="grid grid-cols-[repeat(auto-fit,minmax(190px,1fr))] gap-10">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(190px,1fr))] gap-10">
           {reservations.map((reservation, index) => (
             <CardPropiedades
               key={reservation.publicacion.id}
@@ -21,7 +21,7 @@ export function MisReservas() {
               imagen={reservation.publicacion.image}
             />
           ))}
-        </span>
+        </div>
       </div>
     </>
   );

@@ -85,10 +85,10 @@ export function MisPublicaciones() {
         <Divider className="mb-[2rem]" />
       </div>
       <div className="mt-[]2 rem">
-        <span className="flex flex-row ">
+        <span className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
           {myCards.map((card, index) => (
             <Fragment key={card.id}>
-              <Popover placement="right">
+              {/* <Popover placement="right">
                 <PopoverTrigger>
                   <Button
                     onClick={() =>
@@ -108,7 +108,7 @@ export function MisPublicaciones() {
                     </div>
                   </div>
                 </PopoverContent>
-              </Popover>
+              </Popover> */}
               <CardPropiedades
                 titulo={card.titulo}
                 precio={card.precio}

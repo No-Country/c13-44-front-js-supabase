@@ -16,7 +16,7 @@ const Destination: FC<PropsDestination> = () => {
         <Filters />
       </div>
       <span className="m-10">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-8">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
           {myCards.map((posting, index) => (
             <CardPropiedades
               autoWith

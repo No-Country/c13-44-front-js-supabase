@@ -44,7 +44,7 @@ const PostSchema = object({
   salida: date(undefined, []),
   tipoVivienda: string(undefined, [minLength(1), maxLength(15)]),
   limite: number(undefined, [minValue(1), maxValue(10)]),
-  descripcion: string(undefined, [minLength(1), maxLength(50)]),
+  descripcion: string(undefined, [minLength(1), maxLength(500)]),
   mascotas: boolean(),
 });
 
@@ -73,6 +73,7 @@ const defaultValues = {
 export function Post() {
   const { isLogged, user } = AuthContext();
   const [prestaciones, setPrestaciones] = useState([]);
+  const [, setLocation] = useLocation();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const {
@@ -101,8 +102,10 @@ export function Post() {
   ) => {
     const { data, error } = await supabaseClient
       .from("publicacion")
-      .insert([{ ...form, user: user?.user.id }]);
-
+      .insert([{ ...form, user: user?.user.id, active: true }]);
+    if (!error) {
+      setLocation("/perfil");
+    }
     console.log("send", error);
   };
 
